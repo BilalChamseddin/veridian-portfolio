@@ -106,7 +106,7 @@ export const portfolioConfig = {
   // --------------------------------
   // CERTIFICATIONS
   // --------------------------------
-  certifications/Awards: [
+  certification: [
     "TMU - Dean's List Fall & Winter Term",
     "MatLab Onramp",
   ],
