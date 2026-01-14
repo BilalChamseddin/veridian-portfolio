@@ -84,6 +84,7 @@ export const portfolioConfig = {
         "Mentored team of 5 junior developers",
       ],
     },
+  ],
    
   // --------------------------------
   // EDUCATION
