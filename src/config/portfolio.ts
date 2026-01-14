@@ -13,7 +13,7 @@ export const portfolioConfig = {
     title: "Software Engineer",
     tagline: "I design, build, and optimize scalable engineering solutions. Passionate about clean code, system architecture, and creating impactful technology.",
     location: "San Francisco, CA (Remote OK)",
-    email: "alex.chen@example.com",
+    email: "Chamseddinbilal@gmail.com",
     resumeUrl: "/resume.pdf",
   },
 
@@ -31,21 +31,21 @@ export const portfolioConfig = {
   // --------------------------------
   social: {
     github: {
-      url: "https://github.com/alexchen",
-      username: "alexchen",
+      url: "https://github.com/BilalChamseddin",
+      username: "BilalChamseddin",
     },
     linkedin: {
-      url: "https://linkedin.com/in/alexchen",
-      username: "alexchen",
+      url: "https://www.linkedin.com/in/bilal-chamseddin-00a896383/",
+      username: "Bilalchamseddin",
     },
-    email: "alex.chen@example.com",
+    email: "Chamseddinbilal@Gmail.com",
   },
 
   // --------------------------------
   // NAVBAR
   // --------------------------------
   navbar: {
-    logo: "Portfolio",
+    logo: "BC",
   },
 
   // --------------------------------
@@ -54,15 +54,15 @@ export const portfolioConfig = {
   skills: [
     {
       title: "Programming Languages",
-      skills: ["TypeScript", "Python", "Go", "Rust", "Java", "C++"],
+      skills: ["Python", "Arduino", "Java", "C#", "C++"],
     },
     {
-      title: "Frameworks & Tools",
-      skills: ["React", "Node.js", "Next.js", "Django", "PostgreSQL", "Redis"],
+      title: "Mechanical & Design",
+      skills: ["Solidworks", "Fusion 360", "3D Printing", "Prototyping", "Mechanical Assembly"],
     },
     {
-      title: "Cloud & DevOps",
-      skills: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+      title: "Software & Tools",
+      skills: ["Git", "Unity", "Microsoft Office", "AutoCAD"],
     },
     {
       title: "Engineering Concepts",
@@ -75,52 +75,31 @@ export const portfolioConfig = {
   // --------------------------------
   experiences: [
     {
-      role: "Senior Software Engineer",
-      company: "TechCorp Inc.",
-      period: "2022 - Present",
+      role: "Robotics Instructor",
+      company: "IntelliBots Academy",
+      period: "2023 - Present",
       highlights: [
         "Led migration of monolith to microservices, reducing deployment time by 70%",
         "Architected real-time data pipeline processing 1M+ events/day",
         "Mentored team of 5 junior developers",
       ],
     },
-    {
-      role: "Software Engineer",
-      company: "StartupXYZ",
-      period: "2020 - 2022",
-      highlights: [
-        "Built core authentication system serving 100K+ users",
-        "Optimized database queries, improving response times by 40%",
-        "Implemented CI/CD pipeline reducing release cycles by 50%",
-      ],
-    },
-    {
-      role: "Junior Developer",
-      company: "Digital Agency Co.",
-      period: "2019 - 2020",
-      highlights: [
-        "Developed responsive web applications for 20+ clients",
-        "Integrated third-party APIs and payment systems",
-        "Contributed to open-source projects",
-      ],
-    },
-  ],
-
+   
   // --------------------------------
   // EDUCATION
   // --------------------------------
   education: [
     {
-      degree: "M.S. Computer Science",
-      institution: "Stanford University",
-      year: "2019",
-      focus: "Distributed Systems & Machine Learning",
+      degree: "Nanotechnology Engineering",
+      institution: "University of Waterloo",
+      year: "2025-2030",
+      
     },
     {
-      degree: "B.S. Computer Engineering",
-      institution: "UC Berkeley",
-      year: "2017",
-      focus: "Software Engineering & Data Structures",
+      degree: "Mechatronics Engineering",
+      institution: "Toronto Metropolotian University",
+      year: "2024-2025 (Transferred)",
+     
     },
   ],
 
