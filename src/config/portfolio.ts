@@ -9,7 +9,7 @@ export const portfolioConfig = {
   // PERSONAL INFORMATION
   // --------------------------------
   personal: {
-    name: "Alex Chen",
+    name: "Bilal Chamseddin",
     title: "Software Engineer",
     tagline: "I design, build, and optimize scalable engineering solutions. Passionate about clean code, system architecture, and creating impactful technology.",
     location: "San Francisco, CA (Remote OK)",
