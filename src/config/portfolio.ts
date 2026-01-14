@@ -108,10 +108,8 @@ export const portfolioConfig = {
   // CERTIFICATIONS
   // --------------------------------
   certifications: [
-    "AWS Solutions Architect Professional",
-    "Google Cloud Professional Developer",
-    "Kubernetes Administrator (CKA)",
-    "MongoDB Certified Developer",
+    "TMU - Dean's List Fall & Winter Term",
+    "MatLab Onramp",
   ],
 
   // --------------------------------
@@ -119,7 +117,7 @@ export const portfolioConfig = {
   // --------------------------------
   featuredProjects: [
     {
-      title: "CloudScale Analytics",
+      title: "Triboelectric Nanogenerator (TENG)",
       problem: "Real-time analytics for distributed systems",
       solution: "Built a scalable data pipeline processing millions of events",
       tech: ["Go", "Kafka", "PostgreSQL", "Grafana"],
@@ -127,7 +125,7 @@ export const portfolioConfig = {
       demo: "https://example.com",
     },
     {
-      title: "SecureAuth Platform",
+      title: "Automatic Cat Feeder",
       problem: "Enterprise-grade authentication system",
       solution: "Zero-trust architecture with MFA and SSO integration",
       tech: ["TypeScript", "Node.js", "Redis", "AWS"],
@@ -135,7 +133,7 @@ export const portfolioConfig = {
       demo: "https://example.com",
     },
     {
-      title: "DevOps Toolkit",
+      title: "Automatic Trash Bin",
       problem: "Streamlined deployment workflows",
       solution: "Infrastructure-as-code templates and CI/CD pipelines",
       tech: ["Python", "Terraform", "Docker", "GitHub Actions"],
@@ -150,7 +148,7 @@ export const portfolioConfig = {
   projects: [
     {
       id: 1,
-      title: "CloudScale Analytics",
+      title: "Triboelectric Nanogenerator (TENG)",
       description: "Real-time analytics platform for distributed systems monitoring and observability.",
       category: "Systems",
       tech: ["Go", "Kafka", "PostgreSQL", "Grafana", "Prometheus"],
@@ -162,7 +160,7 @@ export const portfolioConfig = {
     },
     {
       id: 2,
-      title: "SecureAuth Platform",
+      title: "Automatic Cat Feeder",
       description: "Enterprise-grade authentication with zero-trust architecture, MFA, and SSO.",
       category: "Software",
       tech: ["TypeScript", "Node.js", "Redis", "AWS", "OAuth 2.0"],
@@ -174,7 +172,7 @@ export const portfolioConfig = {
     },
     {
       id: 3,
-      title: "ML Pipeline Orchestrator",
+      title: "Automatic Trash Bin",
       description: "Automated machine learning pipeline for training, validation, and deployment.",
       category: "AI / Data",
       tech: ["Python", "TensorFlow", "Airflow", "MLflow", "Docker"],
@@ -186,7 +184,7 @@ export const portfolioConfig = {
     },
     {
       id: 4,
-      title: "DevOps Toolkit",
+      title: "2D Platformer Game",
       description: "Infrastructure-as-code templates and CI/CD pipeline configurations.",
       category: "Systems",
       tech: ["Python", "Terraform", "Docker", "GitHub Actions", "Kubernetes"],
@@ -198,7 +196,7 @@ export const portfolioConfig = {
     },
     {
       id: 5,
-      title: "Real-time Collaboration API",
+      title: "Data Graphing App",
       description: "WebSocket-based API for real-time document collaboration and presence.",
       category: "Software",
       tech: ["TypeScript", "WebSocket", "Redis Pub/Sub", "CRDTs", "PostgreSQL"],
@@ -210,7 +208,7 @@ export const portfolioConfig = {
     },
     {
       id: 6,
-      title: "Predictive Maintenance System",
+      title: "Robotic Arm",
       description: "IoT sensor data analysis for predicting equipment failures in manufacturing.",
       category: "AI / Data",
       tech: ["Python", "PyTorch", "TimescaleDB", "Kafka", "React"],
@@ -225,7 +223,7 @@ export const portfolioConfig = {
   // --------------------------------
   // PROJECT CATEGORIES (for filtering)
   // --------------------------------
-  projectCategories: ["All", "Software", "Systems", "AI / Data"],
+  projectCategories: ["All", "Mechanical", "Software", "Robotics"],
 
   // --------------------------------
   // OPEN SOURCE CONTRIBUTIONS
