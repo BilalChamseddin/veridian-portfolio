@@ -12,7 +12,7 @@ export const portfolioConfig = {
     name: "Bilal Chamseddin",
     title: "Software Engineer",
     tagline: "I design, build, and optimize scalable engineering solutions. Passionate about clean code, system architecture, and creating impactful technology.",
-    location: "San Francisco, CA (Remote OK)",
+    location: "Toronto, Canada",
     email: "Chamseddinbilal@gmail.com",
     resumeUrl: "/resume.pdf",
   },
