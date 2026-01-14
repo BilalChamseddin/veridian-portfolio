@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Download, Github, Linkedin, Mail, MapPin, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { portfolioConfig } from "@/config/portfolio";
 
 export default function Contact() {
+  const { personal, social } = portfolioConfig;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
@@ -52,7 +54,7 @@ export default function Contact() {
                     in a recruiter-friendly format.
                   </p>
                   <Button variant="hero" size="lg" className="w-full" asChild>
-                    <a href="/resume.pdf" download>
+                    <a href={personal.resumeUrl} download>
                       <Download className="mr-2 h-5 w-5" />
                       Download PDF Resume
                     </a>
@@ -64,7 +66,7 @@ export default function Contact() {
                   
                   <div className="space-y-4">
                     <a
-                      href="mailto:alex.chen@example.com"
+                      href={`mailto:${personal.email}`}
                       className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
                     >
                       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -72,12 +74,12 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium">Email</p>
-                        <p className="text-sm text-muted-foreground">alex.chen@example.com</p>
+                        <p className="text-sm text-muted-foreground">{personal.email}</p>
                       </div>
                     </a>
 
                     <a
-                      href="https://linkedin.com"
+                      href={social.linkedin.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
@@ -87,12 +89,12 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium">LinkedIn</p>
-                        <p className="text-sm text-muted-foreground">linkedin.com/in/alexchen</p>
+                        <p className="text-sm text-muted-foreground">linkedin.com/in/{social.linkedin.username}</p>
                       </div>
                     </a>
 
                     <a
-                      href="https://github.com"
+                      href={social.github.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
@@ -102,7 +104,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium">GitHub</p>
-                        <p className="text-sm text-muted-foreground">github.com/alexchen</p>
+                        <p className="text-sm text-muted-foreground">github.com/{social.github.username}</p>
                       </div>
                     </a>
 
@@ -112,7 +114,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium">Location</p>
-                        <p className="text-sm text-muted-foreground">San Francisco, CA (Remote OK)</p>
+                        <p className="text-sm text-muted-foreground">{personal.location}</p>
                       </div>
                     </div>
                   </div>

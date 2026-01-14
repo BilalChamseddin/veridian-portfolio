@@ -1,39 +1,9 @@
 import { Building2, Calendar } from "lucide-react";
-
-const experiences = [
-  {
-    role: "Senior Software Engineer",
-    company: "TechCorp Inc.",
-    period: "2022 - Present",
-    highlights: [
-      "Led migration of monolith to microservices, reducing deployment time by 70%",
-      "Architected real-time data pipeline processing 1M+ events/day",
-      "Mentored team of 5 junior developers",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    company: "StartupXYZ",
-    period: "2020 - 2022",
-    highlights: [
-      "Built core authentication system serving 100K+ users",
-      "Optimized database queries, improving response times by 40%",
-      "Implemented CI/CD pipeline reducing release cycles by 50%",
-    ],
-  },
-  {
-    role: "Junior Developer",
-    company: "Digital Agency Co.",
-    period: "2019 - 2020",
-    highlights: [
-      "Developed responsive web applications for 20+ clients",
-      "Integrated third-party APIs and payment systems",
-      "Contributed to open-source projects",
-    ],
-  },
-];
+import { portfolioConfig } from "@/config/portfolio";
 
 export function ExperienceSection() {
+  const { experiences } = portfolioConfig;
+
   return (
     <section className="section-padding">
       <div className="section-container">

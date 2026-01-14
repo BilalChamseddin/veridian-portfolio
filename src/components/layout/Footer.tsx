@@ -1,37 +1,40 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
-];
+import { portfolioConfig } from "@/config/portfolio";
 
 export function Footer() {
+  const { social, footer } = portfolioConfig;
+
+  const socialLinks = [
+    { icon: Github, href: social.github.url, label: "GitHub" },
+    { icon: Linkedin, href: social.linkedin.url, label: "LinkedIn" },
+    { icon: Mail, href: `mailto:${social.email}`, label: "Email" },
+  ];
+
   return (
     <footer className="border-t border-border bg-card/50">
       <div className="section-container py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Portfolio. Built with passion.
+              © {new Date().getFullYear()} {footer.copyright}. Built with passion.
             </p>
             <p className="text-xs text-muted-foreground mt-1">
-              Open to opportunities worldwide. Remote-friendly.
+              {footer.tagline}
             </p>
           </div>
 
           <div className="flex items-center gap-4">
-            {socialLinks.map((social) => (
+            {socialLinks.map((socialLink) => (
               <a
-                key={social.label}
-                href={social.href}
+                key={socialLink.label}
+                href={socialLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                aria-label={social.label}
+                aria-label={socialLink.label}
               >
-                <social.icon className="h-5 w-5" />
+                <socialLink.icon className="h-5 w-5" />
               </a>
             ))}
           </div>

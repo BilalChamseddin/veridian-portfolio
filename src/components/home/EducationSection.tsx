@@ -1,28 +1,9 @@
 import { GraduationCap, Award } from "lucide-react";
-
-const education = [
-  {
-    degree: "M.S. Computer Science",
-    institution: "Stanford University",
-    year: "2019",
-    focus: "Distributed Systems & Machine Learning",
-  },
-  {
-    degree: "B.S. Computer Engineering",
-    institution: "UC Berkeley",
-    year: "2017",
-    focus: "Software Engineering & Data Structures",
-  },
-];
-
-const certifications = [
-  "AWS Solutions Architect Professional",
-  "Google Cloud Professional Developer",
-  "Kubernetes Administrator (CKA)",
-  "MongoDB Certified Developer",
-];
+import { portfolioConfig } from "@/config/portfolio";
 
 export function EducationSection() {
+  const { education, certifications } = portfolioConfig;
+
   return (
     <section className="section-padding">
       <div className="section-container">

@@ -1,35 +1,11 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
-const featuredProjects = [
-  {
-    title: "CloudScale Analytics",
-    problem: "Real-time analytics for distributed systems",
-    solution: "Built a scalable data pipeline processing millions of events",
-    tech: ["Go", "Kafka", "PostgreSQL", "Grafana"],
-    github: "https://github.com",
-    demo: "https://example.com",
-  },
-  {
-    title: "SecureAuth Platform",
-    problem: "Enterprise-grade authentication system",
-    solution: "Zero-trust architecture with MFA and SSO integration",
-    tech: ["TypeScript", "Node.js", "Redis", "AWS"],
-    github: "https://github.com",
-    demo: "https://example.com",
-  },
-  {
-    title: "DevOps Toolkit",
-    problem: "Streamlined deployment workflows",
-    solution: "Infrastructure-as-code templates and CI/CD pipelines",
-    tech: ["Python", "Terraform", "Docker", "GitHub Actions"],
-    github: "https://github.com",
-    demo: null,
-  },
-];
+import { portfolioConfig } from "@/config/portfolio";
 
 export function FeaturedProjects() {
+  const { featuredProjects } = portfolioConfig;
+
   return (
     <section className="section-padding bg-muted/30">
       <div className="section-container">
