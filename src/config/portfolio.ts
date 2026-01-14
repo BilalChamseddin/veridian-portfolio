@@ -81,14 +81,7 @@ export const portfolioConfig = {
         "Accomplished curriculum execution as measured by 10+ completed builds, by guiding students through wiring, debugging, and iterative prototyping."
       ],
     },
-    {
-      role: "Front Desk & Facility Maintenance",
-      company: "Hub Climbing — Mississauga",
-      period: "June 2025 - Present",
-      highlights: [
-        "Accomplished operational safety as measured by 100% equipment uptime, by performing inspections and mechanical troubleshooting on auto-belay systems."
-      ],
-    },
+    
   ],
 
   // --------------------------------
