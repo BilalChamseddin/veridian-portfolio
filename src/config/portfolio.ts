@@ -10,7 +10,7 @@ export const portfolioConfig = {
   // --------------------------------
   personal: {
     name: "Bilal Chamseddin",
-    title: "Software Engineer",
+    title: "Waterloo Engineer",
     tagline: "I design, build, and optimize scalable engineering solutions. Passionate about clean code, system architecture, and creating impactful technology.",
     location: "Toronto, Canada",
     email: "Chamseddinbilal@gmail.com",
@@ -21,8 +21,7 @@ export const portfolioConfig = {
   // QUICK STATS (Hero Section)
   // --------------------------------
   stats: {
-    yearsExperience: "5+",
-    projectsCompleted: "30+",
+    projectsCompleted: "7",
     technologies: "15+",
   },
 
@@ -107,7 +106,7 @@ export const portfolioConfig = {
   // --------------------------------
   // CERTIFICATIONS
   // --------------------------------
-  certifications: [
+  certifications/Awards: [
     "TMU - Dean's List Fall & Winter Term",
     "MatLab Onramp",
   ],
