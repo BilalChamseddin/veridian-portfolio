@@ -1,8 +1,6 @@
 // ================================
 // PORTFOLIO CONFIGURATION
 // ================================
-// Edit this file to customize your portfolio with your own information.
-// All personal data, projects, skills, and content are centralized here.
 
 export const portfolioConfig = {
   // --------------------------------
@@ -12,7 +10,7 @@ export const portfolioConfig = {
     name: "Bilal Chamseddin",
     title: "Waterloo Engineer",
     tagline:
-      "I design, build, and optimize scalable engineering solutions. Passionate about clean code, system architecture, and creating impactful technology.",
+      "I design, build, and optimize engineering solutions in robotics, electronics, and software. Passionate about creating impactful technology and hands-on projects.",
     location: "Toronto, Canada",
     email: "Chamseddinbilal@gmail.com",
     resumeUrl: "/resume.pdf",
@@ -22,7 +20,7 @@ export const portfolioConfig = {
   // QUICK STATS (Hero Section)
   // --------------------------------
   stats: {
-    projectsCompleted: "7",
+    projectsCompleted: "6",
     technologies: "15+",
   },
 
@@ -54,19 +52,19 @@ export const portfolioConfig = {
   skills: [
     {
       title: "Programming Languages",
-      skills: ["Python", "Arduino", "Java", "C#", "C++"],
+      skills: ["C++", "C", "Python", "Java", "C#", "Arduino"],
     },
     {
       title: "Mechanical & Design",
-      skills: ["Solidworks", "Fusion 360", "3D Printing", "Prototyping", "Mechanical Assembly"],
+      skills: ["SolidWorks", "Fusion 360", "3D Printing", "Prototyping", "Mechanical Assembly"],
+    },
+    {
+      title: "Electronics & Embedded",
+      skills: ["Sensors", "Motors", "Soldering", "Circuit Design", "Embedded Systems", "Actuators"],
     },
     {
       title: "Software & Tools",
-      skills: ["Git", "Unity", "Microsoft Office", "AutoCAD"],
-    },
-    {
-      title: "Engineering Concepts",
-      skills: ["System Design", "Microservices", "API Design", "Testing", "Agile", "Security"],
+      skills: ["Unity", "Git", "AutoCAD", "Microsoft Office", "CAD Modeling"],
     },
   ],
 
@@ -77,11 +75,18 @@ export const portfolioConfig = {
     {
       role: "Robotics Instructor",
       company: "IntelliBots Academy",
-      period: "2023 - Present",
+      period: "June 2023 - Present",
       highlights: [
-        "Led migration of monolith to microservices, reducing deployment time by 70%",
-        "Architected real-time data pipeline processing 1M+ events/day",
-        "Mentored team of 5 junior developers",
+        "Accomplished hands-on robotics instruction as measured by mentoring 50+ students, by delivering Arduino, Python, CAD, and mechanical design projects.",
+        "Accomplished curriculum execution as measured by 10+ completed builds, by guiding students through wiring, debugging, and iterative prototyping."
+      ],
+    },
+    {
+      role: "Front Desk & Facility Maintenance",
+      company: "Hub Climbing — Mississauga",
+      period: "June 2025 - Present",
+      highlights: [
+        "Accomplished operational safety as measured by 100% equipment uptime, by performing inspections and mechanical troubleshooting on auto-belay systems."
       ],
     },
   ],
@@ -94,11 +99,17 @@ export const portfolioConfig = {
       degree: "Nanotechnology Engineering",
       institution: "University of Waterloo",
       year: "2025-2030",
+      gpa: "3.7 / 4.0",
+      courses: ["Linear Algebra", "Calculus I/II", "Circuits", "Computational Methods"],
+      awards: ["Sir Isaac Newton Physics Exam (66th Canada, 109th World)"],
     },
     {
-      degree: "Mechatronics Engineering",
+      degree: "Mechatronics Engineering (Transferred)",
       institution: "Toronto Metropolitan University",
-      year: "2024-2025 (Transferred)",
+      year: "2024-2025",
+      gpa: "3.8 / 4.0",
+      courses: ["Mechanics", "Waves & Fields", "Programming Fundamentals", "Materials Science"],
+      awards: ["Dean’s List (Fall & Winter)"],
     },
   ],
 
@@ -106,8 +117,7 @@ export const portfolioConfig = {
   // CERTIFICATIONS
   // --------------------------------
   certifications: [
-    "TMU - Dean's List Fall & Winter Term",
-    "MatLab Onramp",
+    "Dean's List - TMU Fall & Winter Term",
   ],
 
   // --------------------------------
@@ -116,26 +126,44 @@ export const portfolioConfig = {
   featuredProjects: [
     {
       title: "Triboelectric Nanogenerator (TENG)",
-      problem: "Real-time analytics for distributed systems",
-      solution: "Built a scalable data pipeline processing millions of events",
-      tech: ["Go", "Kafka", "PostgreSQL", "Grafana"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      description: "Accomplished functional energy harvesting as measured by 1.13 V peak output, by designing and fabricating a contact–separation triboelectric structure under a 2-hour constraint.",
+      tech: ["CAD", "Prototyping", "Nanomaterials"],
+      github: null,
+      demo: null,
     },
     {
       title: "Automatic Cat Feeder",
-      problem: "Enterprise-grade authentication system",
-      solution: "Zero-trust architecture with MFA and SSO integration",
-      tech: ["TypeScript", "Node.js", "Redis", "AWS"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      description: "Accomplished scheduled automation as measured by ±2 s timing accuracy, by programming Arduino-based motor control and designing 3D-printed components for 30+ successful dispense cycles.",
+      tech: ["Arduino", "CAD", "3D Printing", "Electronics"],
+      github: null,
+      demo: null,
+    },
+    {
+      title: "3D-Printed Robotic Arm",
+      description: "Accomplished articulated motion as measured by 4 degrees of freedom and ±5° repeatability, by assembling and programming servo-controlled 3D-printed joints.",
+      tech: ["Arduino", "Servo Control", "Mechanical Design"],
+      github: null,
+      demo: null,
+    },
+    {
+      title: "Interactive Hungry Robot",
+      description: "Accomplished autonomous object detection as measured by 2–40 cm sensing range and <0.5 s reaction time, by integrating ultrasonic sensors and motorized actuation.",
+      tech: ["Arduino", "Ultrasonic Sensors", "Embedded Control"],
+      github: null,
+      demo: null,
+    },
+    {
+      title: "2D Platformer Game",
+      description: "Accomplished game functionality as measured by fully implemented player physics, AI, scoring, and checkpoints, by building a 2D platformer in Unity with C# and OOP design principles.",
+      tech: ["Unity", "C#", "Game Design", "OOP", "Physics"],
+      github: null,
+      demo: null,
     },
     {
       title: "Automatic Trash Bin",
-      problem: "Streamlined deployment workflows",
-      solution: "Infrastructure-as-code templates and CI/CD pipelines",
-      tech: ["Python", "Terraform", "Docker", "GitHub Actions"],
-      github: "https://github.com",
+      description: "Accomplished automated operation as measured by reliable food dispensing, by integrating Arduino, sensors, and custom mechanical components.",
+      tech: ["Arduino", "Electronics", "3D Printing", "Sensors"],
+      github: null,
       demo: null,
     },
   ],
@@ -147,74 +175,56 @@ export const portfolioConfig = {
     {
       id: 1,
       title: "Triboelectric Nanogenerator (TENG)",
-      description: "Real-time analytics platform for distributed systems monitoring and observability.",
+      description: "Accomplished functional energy harvesting as measured by 1.13 V peak output, by designing and fabricating a contact–separation triboelectric structure under a 2-hour constraint.",
       category: "Mechanical",
-      tech: ["Go", "Kafka", "PostgreSQL", "Grafana", "Prometheus"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      problem: "Organizations struggle to monitor distributed systems effectively, leading to slow incident response times.",
-      decisions: "Chose Go for high-performance data processing, Kafka for reliable event streaming, and Prometheus for metrics collection.",
-      outcome: "Reduced mean time to detection by 60% and enabled processing of 1M+ events per second.",
+      tech: ["CAD", "Prototyping", "Nanomaterials"],
+      github: null,
+      demo: null,
     },
     {
       id: 2,
       title: "Automatic Cat Feeder",
-      description: "Enterprise-grade authentication with zero-trust architecture, MFA, and SSO.",
+      description: "Accomplished scheduled automation as measured by ±2 s timing accuracy and mechanical robustness measured by 30+ successful dispense cycles, by programming Arduino-based motor control and designing 3D-printed components.",
       category: "Robotics",
-      tech: ["TypeScript", "Node.js", "Redis", "AWS", "OAuth 2.0"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      problem: "Legacy authentication systems were vulnerable and didn't support modern security standards.",
-      decisions: "Implemented zero-trust architecture with JWT tokens, Redis for session management, and AWS KMS for secrets.",
-      outcome: "Secured 100K+ user accounts with 99.99% uptime and zero security breaches.",
+      tech: ["Arduino", "CAD", "3D Printing", "Electronics"],
+      github: null,
+      demo: null,
     },
     {
       id: 3,
-      title: "Automatic Trash Bin",
-      description: "Automated machine learning pipeline for training, validation, and deployment.",
+      title: "3D-Printed Robotic Arm",
+      description: "Accomplished articulated motion as measured by 4 degrees of freedom and ±5° repeatability, by assembling and programming servo-controlled 3D-printed joints.",
       category: "Robotics",
-      tech: ["Python", "TensorFlow", "Airflow", "MLflow", "Docker"],
-      github: "https://github.com",
+      tech: ["Arduino", "Servo Control", "Mechanical Design"],
+      github: null,
       demo: null,
-      problem: "Data scientists spent 70% of time on infrastructure instead of model development.",
-      decisions: "Built abstraction layer over Airflow, integrated MLflow for experiment tracking, containerized all stages.",
-      outcome: "Reduced model deployment time from weeks to hours, improved experiment reproducibility.",
     },
     {
       id: 4,
-      title: "2D Platformer Game",
-      description: "Infrastructure-as-code templates and CI/CD pipeline configurations.",
-      category: "Software",
-      tech: ["Python", "Terraform", "Docker", "GitHub Actions", "Kubernetes"],
-      github: "https://github.com",
+      title: "Interactive Hungry Robot",
+      description: "Accomplished autonomous object detection as measured by 2–40 cm sensing range and <0.5 s reaction time, by integrating ultrasonic sensors and motorized actuation.",
+      category: "Robotics",
+      tech: ["Arduino", "Ultrasonic Sensors", "Embedded Control"],
+      github: null,
       demo: null,
-      problem: "Teams wasted time recreating similar infrastructure and deployment pipelines.",
-      decisions: "Created modular Terraform modules, reusable GitHub Actions, and Helm charts.",
-      outcome: "Standardized deployments across 10+ teams, reduced setup time by 80%.",
     },
     {
       id: 5,
-      title: "Data Graphing App",
-      description: "WebSocket-based API for real-time document collaboration and presence.",
+      title: "2D Platformer Game",
+      description: "Accomplished game functionality as measured by fully implemented player physics, AI, scoring, and checkpoints, by building a 2D platformer in Unity with C# and OOP design principles.",
       category: "Software",
-      tech: ["TypeScript", "WebSocket", "Redis Pub/Sub", "CRDTs", "PostgreSQL"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      problem: "Traditional REST APIs couldn't support real-time collaborative editing requirements.",
-      decisions: "Used CRDTs for conflict resolution, WebSockets for real-time sync, Redis for pub/sub.",
-      outcome: "Enabled simultaneous editing by 50+ users with sub-100ms sync latency.",
+      tech: ["Unity", "C#", "Game Design", "OOP", "Physics"],
+      github: null,
+      demo: null,
     },
     {
       id: 6,
-      title: "Robotic Arm",
-      description: "IoT sensor data analysis for predicting equipment failures in manufacturing.",
+      title: "Automatic Trash Bin",
+      description: "Accomplished automated operation as measured by reliable food dispensing, by integrating Arduino, sensors, and custom mechanical components.",
       category: "Robotics",
-      tech: ["Python", "PyTorch", "TimescaleDB", "Kafka", "React"],
-      github: "https://github.com",
+      tech: ["Arduino", "Electronics", "3D Printing", "Sensors"],
+      github: null,
       demo: null,
-      problem: "Unexpected equipment failures caused costly downtime in manufacturing plants.",
-      decisions: "Built time-series models with PyTorch, used TimescaleDB for sensor data, Kafka for streaming.",
-      outcome: "Predicted 85% of failures with 24-hour advance notice, saved $2M annually.",
     },
   ],
 
@@ -226,11 +236,7 @@ export const portfolioConfig = {
   // --------------------------------
   // OPEN SOURCE CONTRIBUTIONS
   // --------------------------------
-  openSourceContributions: [
-    { name: "kubernetes/kubernetes", stars: "100K+", description: "Fixed networking issue in pod scheduling" },
-    { name: "grafana/grafana", stars: "55K+", description: "Added custom visualization plugin support" },
-    { name: "hashicorp/terraform", stars: "38K+", description: "Improved AWS provider documentation" },
-  ],
+  openSourceContributions: [],
 
   // --------------------------------
   // FOOTER
@@ -241,10 +247,9 @@ export const portfolioConfig = {
   },
 };
 
-// Type exports for better IDE support
+// Type exports
 export type PortfolioConfig = typeof portfolioConfig;
 export type Project = typeof portfolioConfig.projects[number];
 export type Experience = typeof portfolioConfig.experiences[number];
 export type Education = typeof portfolioConfig.education[number];
 export type FeaturedProject = typeof portfolioConfig.featuredProjects[number];
-export type OpenSourceContribution = typeof portfolioConfig.openSourceContributions[number];
