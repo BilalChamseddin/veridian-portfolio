@@ -11,7 +11,8 @@ export const portfolioConfig = {
   personal: {
     name: "Bilal Chamseddin",
     title: "Waterloo Engineer",
-    tagline: "I design, build, and optimize scalable engineering solutions. Passionate about clean code, system architecture, and creating impactful technology.",
+    tagline:
+      "I design, build, and optimize scalable engineering solutions. Passionate about clean code, system architecture, and creating impactful technology.",
     location: "Toronto, Canada",
     email: "Chamseddinbilal@gmail.com",
     resumeUrl: "/resume.pdf",
@@ -35,9 +36,9 @@ export const portfolioConfig = {
     },
     linkedin: {
       url: "https://www.linkedin.com/in/bilal-chamseddin-00a896383/",
-      username: "Bilalchamseddin",
+      username: "BilalChamseddin",
     },
-    email: "Chamseddinbilal@Gmail.com",
+    email: "Chamseddinbilal@gmail.com",
   },
 
   // --------------------------------
@@ -84,7 +85,7 @@ export const portfolioConfig = {
       ],
     },
   ],
-   
+
   // --------------------------------
   // EDUCATION
   // --------------------------------
@@ -93,20 +94,18 @@ export const portfolioConfig = {
       degree: "Nanotechnology Engineering",
       institution: "University of Waterloo",
       year: "2025-2030",
-      
     },
     {
       degree: "Mechatronics Engineering",
-      institution: "Toronto Metropolotian University",
+      institution: "Toronto Metropolitan University",
       year: "2024-2025 (Transferred)",
-     
     },
   ],
 
   // --------------------------------
   // CERTIFICATIONS
   // --------------------------------
-  certification: [
+  certifications: [
     "TMU - Dean's List Fall & Winter Term",
     "MatLab Onramp",
   ],
