@@ -1,8 +1,11 @@
 import { ArrowRight, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { portfolioConfig } from "@/config/portfolio";
 
 export function HeroSection() {
+  const { personal, stats } = portfolioConfig;
+
   return (
     <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
       {/* Background decoration */}
@@ -18,14 +21,12 @@ export function HeroSection() {
             <div className="space-y-4">
               <p className="text-accent font-medium fade-in">Hello, I'm</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight fade-in animate-delay-100">
-                <span className="text-foreground">Alex Chen</span>
+                <span className="text-foreground">{personal.name}</span>
                 <br />
-                <span className="gradient-text">Software Engineer</span>
+                <span className="gradient-text">{personal.title}</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg fade-in animate-delay-200">
-                I design, build, and optimize scalable engineering solutions. 
-                Passionate about clean code, system architecture, and creating 
-                impactful technology.
+                {personal.tagline}
               </p>
             </div>
 
@@ -37,7 +38,7 @@ export function HeroSection() {
                 </Link>
               </Button>
               <Button variant="heroOutline" size="xl" asChild>
-                <a href="#resume" download>
+                <a href={personal.resumeUrl} download>
                   <Download className="mr-2 h-5 w-5" />
                   Download Resume
                 </a>
@@ -47,15 +48,15 @@ export function HeroSection() {
             {/* Quick stats */}
             <div className="flex flex-wrap gap-8 pt-4 fade-in animate-delay-400">
               <div>
-                <p className="text-3xl font-bold text-primary">5+</p>
+                <p className="text-3xl font-bold text-primary">{stats.yearsExperience}</p>
                 <p className="text-sm text-muted-foreground">Years Experience</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">30+</p>
+                <p className="text-3xl font-bold text-primary">{stats.projectsCompleted}</p>
                 <p className="text-sm text-muted-foreground">Projects Completed</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">15+</p>
+                <p className="text-3xl font-bold text-primary">{stats.technologies}</p>
                 <p className="text-sm text-muted-foreground">Technologies</p>
               </div>
             </div>
