@@ -52,19 +52,19 @@ export const portfolioConfig = {
   skills: [
     {
       title: "Programming Languages",
-      skills: ["C++", "C", "Python", "Java", "C#", "Arduino"],
+      skills: ["Python", "Arduino", "Java", "C#", "C++"],
     },
     {
       title: "Mechanical & Design",
-      skills: ["SolidWorks", "Fusion 360", "3D Printing", "Prototyping", "Mechanical Assembly"],
-    },
-    {
-      title: "Electronics & Embedded",
-      skills: ["Sensors", "Motors", "Soldering", "Circuit Design", "Embedded Systems", "Actuators"],
+      skills: ["Solidworks", "Fusion 360", "3D Printing", "Prototyping", "Mechanical Assembly"],
     },
     {
       title: "Software & Tools",
-      skills: ["Unity", "Git", "AutoCAD", "Microsoft Office", "CAD Modeling"],
+      skills: ["Git", "Unity", "Microsoft Office", "AutoCAD"],
+    },
+    {
+      title: "Engineering Concepts",
+      skills: ["Embedded Systems", "Robotics", "Circuit Design", "Sensors", "Actuators"],
     },
   ],
 
@@ -145,27 +145,6 @@ export const portfolioConfig = {
       github: null,
       demo: null,
     },
-    {
-      title: "Interactive Hungry Robot",
-      description: "Accomplished autonomous object detection as measured by 2–40 cm sensing range and <0.5 s reaction time, by integrating ultrasonic sensors and motorized actuation.",
-      tech: ["Arduino", "Ultrasonic Sensors", "Embedded Control"],
-      github: null,
-      demo: null,
-    },
-    {
-      title: "2D Platformer Game",
-      description: "Accomplished game functionality as measured by fully implemented player physics, AI, scoring, and checkpoints, by building a 2D platformer in Unity with C# and OOP design principles.",
-      tech: ["Unity", "C#", "Game Design", "OOP", "Physics"],
-      github: null,
-      demo: null,
-    },
-    {
-      title: "Automatic Trash Bin",
-      description: "Accomplished automated operation as measured by reliable food dispensing, by integrating Arduino, sensors, and custom mechanical components.",
-      tech: ["Arduino", "Electronics", "3D Printing", "Sensors"],
-      github: null,
-      demo: null,
-    },
   ],
 
   // --------------------------------
@@ -217,15 +196,6 @@ export const portfolioConfig = {
       github: null,
       demo: null,
     },
-    {
-      id: 6,
-      title: "Automatic Trash Bin",
-      description: "Accomplished automated operation as measured by reliable food dispensing, by integrating Arduino, sensors, and custom mechanical components.",
-      category: "Robotics",
-      tech: ["Arduino", "Electronics", "3D Printing", "Sensors"],
-      github: null,
-      demo: null,
-    },
   ],
 
   // --------------------------------
@@ -253,3 +223,4 @@ export type Project = typeof portfolioConfig.projects[number];
 export type Experience = typeof portfolioConfig.experiences[number];
 export type Education = typeof portfolioConfig.education[number];
 export type FeaturedProject = typeof portfolioConfig.featuredProjects[number];
+export type OpenSourceContribution = typeof portfolioConfig.openSourceContributions[number];
