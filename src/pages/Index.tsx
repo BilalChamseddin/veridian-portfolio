@@ -1,10 +1,11 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/home/HeroSection";
+import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { SkillsSection } from "@/components/home/SkillsSection";
 import { ExperienceSection } from "@/components/home/ExperienceSection";
-import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { EducationSection } from "@/components/home/EducationSection";
+import { CertificationsSection } from "@/components/home/CertificationsSection";
 
 const Index = () => {
   return (
@@ -12,10 +13,11 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <ProjectsSection />
         <SkillsSection />
         <ExperienceSection />
-        <FeaturedProjects />
         <EducationSection />
+        <CertificationsSection />
       </main>
       <Footer />
     </div>

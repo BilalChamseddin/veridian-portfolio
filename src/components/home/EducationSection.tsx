@@ -1,67 +1,65 @@
-import { GraduationCap, Award } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { portfolioConfig } from "@/config/portfolio";
 
 export function EducationSection() {
-  const { education, certifications } = portfolioConfig;
+  const { education } = portfolioConfig;
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-muted/30">
       <div className="section-container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Education & Certifications</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Education</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Academic foundation and industry-recognized credentials.
+            Academic foundation in engineering and technology.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Education */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 mb-4">
-              <GraduationCap className="h-5 w-5 text-primary" />
-              <h3 className="font-semibold text-lg">Education</h3>
-            </div>
-            {education.map((edu, index) => (
-              <div
-                key={edu.degree}
-                className="bg-card rounded-xl p-5 shadow-soft fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h4 className="font-medium">{edu.degree}</h4>
-                    <p className="text-sm text-muted-foreground">{edu.institution}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{edu.focus}</p>
+        <div className="max-w-3xl mx-auto space-y-6">
+          {education.map((edu, index) => (
+            <div
+              key={edu.degree}
+              className="bg-card rounded-2xl p-6 shadow-soft fade-in border border-border"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-primary/10 text-primary shrink-0">
+                  <GraduationCap className="h-6 w-6" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
+                    <div>
+                      <h3 className="font-semibold text-lg">{edu.degree}</h3>
+                      <p className="text-muted-foreground">{edu.institution}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        {edu.year}
+                      </span>
+                      {edu.gpa && (
+                        <p className="text-sm text-muted-foreground mt-2">GPA: {edu.gpa}</p>
+                      )}
+                    </div>
                   </div>
-                  <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    {edu.year}
-                  </span>
+                  
+                  {edu.courses && edu.courses.length > 0 && (
+                    <div className="mt-4">
+                      <p className="text-sm font-medium text-muted-foreground mb-2">Relevant Coursework</p>
+                      <div className="flex flex-wrap gap-2">
+                        {edu.courses.map((course) => (
+                          <span
+                            key={course}
+                            className="text-xs px-2 py-1 bg-muted rounded-full text-muted-foreground"
+                          >
+                            {course}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Award className="h-5 w-5 text-primary" />
-              <h3 className="font-semibold text-lg">Certifications</h3>
             </div>
-            <div className="bg-card rounded-xl p-5 shadow-soft">
-              <ul className="space-y-3">
-                {certifications.map((cert, index) => (
-                  <li
-                    key={cert}
-                    className="flex items-center gap-3 text-sm fade-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <span className="w-2 h-2 rounded-full bg-secondary shrink-0" />
-                    {cert}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

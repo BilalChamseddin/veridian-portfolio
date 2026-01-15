@@ -1,76 +1,42 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, ExternalLink, Github, Clock, Filter } from "lucide-react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { ChevronDown, ChevronUp, ExternalLink, Github, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { portfolioConfig, Project } from "@/config/portfolio";
 
-const Projects = () => {
-  const { projects, projectCategories } = portfolioConfig;
-  const [selectedCategory, setSelectedCategory] = useState("All");
+export function ProjectsSection() {
+  const { projects } = portfolioConfig;
   const [expandedId, setExpandedId] = useState<number | null>(null);
-
-  const filteredProjects = selectedCategory === "All"
-    ? projects
-    : projects.filter((p) => p.category === selectedCategory);
 
   const toggleExpand = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
   };
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main className="section-padding pt-24">
-        <div className="section-container">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Projects</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive collection of engineering projects across robotics, software, and mechanical design.
-            </p>
-          </div>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-            <Filter className="h-4 w-4 text-muted-foreground" />
-            {projectCategories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid gap-6 max-w-4xl mx-auto">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                isExpanded={expandedId === project.id}
-                onToggle={() => toggleExpand(project.id)}
-                delay={index * 100}
-              />
-            ))}
-          </div>
-
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">No projects found in this category.</p>
-            </div>
-          )}
+    <section id="projects" className="section-padding">
+      <div className="section-container">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Projects</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A collection of engineering projects showcasing problem-solving and technical skills.
+          </p>
         </div>
-      </main>
-      <Footer />
-    </div>
+
+        <div className="grid gap-6 max-w-4xl mx-auto">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              isExpanded={expandedId === project.id}
+              onToggle={() => toggleExpand(project.id)}
+              delay={index * 100}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
-};
+}
 
 interface ProjectCardProps {
   project: Project;
@@ -101,11 +67,10 @@ function ProjectCard({ project, isExpanded, onToggle, delay }: ProjectCardProps)
           <div className="flex-1 space-y-3">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <div className="flex items-center gap-2 flex-wrap">
+                <div className="flex items-center gap-2">
                   <h3 className="font-semibold text-xl">{project.title}</h3>
-                  <Badge variant="secondary" className="text-xs">{project.category}</Badge>
                   {project.comingSoon && (
-                    <Badge variant="outline" className="flex items-center gap-1">
+                    <Badge variant="secondary" className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
                       Coming Soon
                     </Badge>
@@ -170,8 +135,8 @@ function ProjectCard({ project, isExpanded, onToggle, delay }: ProjectCardProps)
       {/* Expanded Details */}
       {isExpanded && (
         <div className="border-t border-border bg-muted/30 p-6 space-y-6 animate-fade-in">
+          {/* Project Summary */}
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Project Summary */}
             <div className="space-y-4">
               <h4 className="font-semibold text-lg text-primary">Project Summary</h4>
               <div className="space-y-3">
@@ -216,5 +181,3 @@ function ProjectCard({ project, isExpanded, onToggle, delay }: ProjectCardProps)
     </div>
   );
 }
-
-export default Projects;

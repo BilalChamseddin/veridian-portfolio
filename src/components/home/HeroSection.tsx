@@ -1,92 +1,110 @@
-import { ArrowRight, Download } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portfolioConfig } from "@/config/portfolio";
 
 export function HeroSection() {
-  const { personal, stats } = portfolioConfig;
+  const { personal, social } = portfolioConfig;
+
+  const scrollToProjects = () => {
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-secondary/30 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-forest-200/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-      </div>
+    <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/30" />
+      
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
-      <div className="section-container">
+      <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8">
+          {/* Text Content */}
+          <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-accent font-medium fade-in">Hello, I'm</p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight fade-in animate-delay-100">
-                <span className="text-foreground">{personal.name}</span>
-                <br />
-                <span className="gradient-text">{personal.title}</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight fade-in">
+                Hi, I'm{" "}
+                <span className="text-primary">
+                  {personal.name}
+                </span>
+                {" "}—{" "}
+                <span className="text-accent">
+                  {personal.title}
+                </span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-lg fade-in animate-delay-200">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl fade-in animate-delay-100">
                 {personal.tagline}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 fade-in animate-delay-300">
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/projects">
-                  View Projects
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in animate-delay-200">
+              <Button
+                size="lg"
+                onClick={scrollToProjects}
+                className="group"
+              >
+                View Projects
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="heroOutline" size="xl" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+              >
                 <a href={personal.resumeUrl} download>
-                  <Download className="mr-2 h-5 w-5" />
+                  <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </a>
               </Button>
             </div>
 
-            {/* Quick stats */}
-            <div className="flex flex-wrap gap-8 pt-4 fade-in animate-delay-400">
-              <div>
-                <p className="text-3xl font-bold text-primary">{stats.yearsExperience}</p>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">{stats.projectsCompleted}</p>
-                <p className="text-sm text-muted-foreground">Projects Completed</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">{stats.technologies}</p>
-                <p className="text-sm text-muted-foreground">Technologies</p>
+            {/* Social Links */}
+            <div className="flex items-center gap-4 justify-center lg:justify-start fade-in animate-delay-300">
+              <span className="text-sm text-muted-foreground">Find me on:</span>
+              <div className="flex items-center gap-3">
+                <a
+                  href={social.github.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+                <a
+                  href={social.linkedin.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href={`mailto:${social.email}`}
+                  className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Illustration */}
-          <div className="relative hidden lg:block fade-in animate-delay-200">
+          {/* Hero Image */}
+          <div className="flex justify-center lg:justify-end fade-in animate-delay-200">
             <div className="relative">
-              {/* Decorative geometric shapes */}
-              <div className="absolute -top-8 -left-8 w-24 h-24 border-2 border-secondary rounded-2xl rotate-12 animate-float" />
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: "1s" }} />
-              
-              {/* Main illustration container */}
-              <div className="relative bg-gradient-to-br from-primary/5 to-secondary/20 rounded-3xl p-8 backdrop-blur-sm">
-                <div className="grid grid-cols-3 gap-4">
-                  {/* Code blocks representation */}
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="h-16 rounded-lg bg-primary/10 animate-pulse"
-                      style={{ animationDelay: `${i * 0.2}s` }}
-                    />
-                  ))}
-                </div>
-                <div className="mt-6 space-y-3">
-                  <div className="h-3 w-3/4 rounded bg-accent/30" />
-                  <div className="h-3 w-1/2 rounded bg-secondary/50" />
-                  <div className="h-3 w-2/3 rounded bg-primary/20" />
-                </div>
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-card">
+                <img
+                  src={personal.heroImage}
+                  alt={personal.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
+              {/* Decorative ring */}
+              <div className="absolute -inset-4 border-2 border-dashed border-primary/20 rounded-full animate-spin" style={{ animationDuration: '30s' }} />
             </div>
           </div>
         </div>
