@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/veridian-portfolio/", // <-- Add this line for GitHub Pages
+  base: mode === "production" ? "/veridian-portfolio/" : "/",
   server: {
     host: "::",
     port: 8080,
