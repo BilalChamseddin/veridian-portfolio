@@ -197,7 +197,7 @@ export const portfolioConfig = {
       description: "Accomplished game functionality as measured by fully implemented player physics, AI, scoring, and checkpoints, by building a 2D platformer in Unity with C# and OOP design principles.",
       category: "Software",
       tech: ["Unity", "C#", "Game Design", "OOP", "Physics"],
-      image: "/placeholder.svg",
+      image: "/pic/game.jpg",
       github: null,
       demo: null,
       comingSoon: false,
