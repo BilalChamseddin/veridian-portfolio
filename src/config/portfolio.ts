@@ -206,7 +206,7 @@ export const portfolioConfig = {
       outcome: "Created fully functional platformer with player physics, enemy AI, scoring system, and checkpoint mechanics. Demonstrated proficiency in game development principles.",
     },
     {
-      id: 5,
+      id: 6,
       title: "3D-Printed Conveyor Belt System",
       summary: "Fully 3D-printed conveyor belt mechanism driven by gear transmission and designed for autonomous operation.",
       description: "Accomplished mechanical power transmission as measured by successful belt motion using gear-driven actuation, by designing and 3D-printing interlocking gears, rollers, and structural components for a functional conveyor system.",
