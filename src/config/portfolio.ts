@@ -16,7 +16,7 @@ export const portfolioConfig = {
       "I design, build, and optimize engineering solutions in robotics, electronics, and software. Passionate about creating impactful technology and hands-on projects.",
     location: "Toronto, Canada",
     email: "Chamseddinbilal@gmail.com",
-    resumeUrl: "/resume.pdf",
+    resumeUrl: "/bilalchamseddinresume.html",
     // Hero image - replace with your own image URL or local path
     heroImage: "/placeholder.svg",
   },

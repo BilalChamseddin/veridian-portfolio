@@ -48,14 +48,20 @@ export function HeroSection() {
                 View Projects
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
+
+              {/* Fixed Resume Button: opens PDF in new tab */}
               <Button
                 size="lg"
                 variant="outline"
                 asChild
               >
-                <a href={personal.resumeUrl} download>
+                <a
+                  href={personal.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Download className="mr-2 h-4 w-4" />
-                  Download Resume
+                  View Resume
                 </a>
               </Button>
             </div>
@@ -104,7 +110,10 @@ export function HeroSection() {
                 />
               </div>
               {/* Decorative ring */}
-              <div className="absolute -inset-4 border-2 border-dashed border-primary/20 rounded-full animate-spin" style={{ animationDuration: '30s' }} />
+              <div
+                className="absolute -inset-4 border-2 border-dashed border-primary/20 rounded-full animate-spin"
+                style={{ animationDuration: '30s' }}
+              />
             </div>
           </div>
         </div>

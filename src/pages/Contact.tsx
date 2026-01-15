@@ -48,15 +48,19 @@ export default function Contact() {
               {/* Resume Download & Info */}
               <div className="space-y-8 fade-in animate-delay-200">
                 <div className="bg-card rounded-2xl p-8 shadow-soft">
-                  <h2 className="text-2xl font-bold mb-4">Download Resume</h2>
+                  <h2 className="text-2xl font-bold mb-4">View Resume</h2>
                   <p className="text-muted-foreground mb-6">
                     Get a comprehensive overview of my experience, skills, and projects 
                     in a recruiter-friendly format.
                   </p>
                   <Button variant="hero" size="lg" className="w-full" asChild>
-                    <a href={personal.resumeUrl} download>
+                    <a 
+                      href={personal.resumeUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
                       <Download className="mr-2 h-5 w-5" />
-                      Download PDF Resume
+                      View PDF Resume
                     </a>
                   </Button>
                 </div>
