@@ -4,6 +4,9 @@ import { portfolioConfig } from "@/config/portfolio";
 export function CertificationsSection() {
   const { certificationsAndAwards } = portfolioConfig;
 
+  // Width variable (can be reused elsewhere if needed)
+  const certificationsWidth = "75vw"; // 60% of viewport width
+
   if (!certificationsAndAwards || certificationsAndAwards.length === 0) {
     return null;
   }
@@ -18,7 +21,10 @@ export function CertificationsSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto"
+          style={{ maxWidth: certificationsWidth }} // apply the width variable
+        >
           {certificationsAndAwards.map((item, index) => (
             <div
               key={item.title}
@@ -52,3 +58,4 @@ export function CertificationsSection() {
     </section>
   );
 }
+

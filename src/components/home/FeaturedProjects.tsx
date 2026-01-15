@@ -16,7 +16,7 @@ export function FeaturedProjects() {
           <div className="text-center sm:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-muted-foreground max-w-2xl">
-              Highlighted engineering work demonstrating problem-solving abilities.
+              Highlighted engineering work demonstrating problem solving abilities.
             </p>
           </div>
           <Button asChild variant="outline">

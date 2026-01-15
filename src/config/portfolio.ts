@@ -74,8 +74,8 @@ export const portfolioConfig = {
       company: "IntelliBots Academy",
       period: "June 2023 - Present",
       highlights: [
-        "Accomplished hands-on robotics instruction as measured by mentoring 50+ students, by delivering Arduino, Python, CAD, and mechanical design projects.",
-        "Accomplished curriculum execution as measured by 10+ completed builds, by guiding students through wiring, debugging, and iterative prototyping."
+        "Accomplished improved student mechanical design skills as measured by 80% of students completing CAD assemblies in Fusion 360, by delivering structured lessons in part modeling, assemblies, and design principles using industry-standard CAD tools.",
+        "Accomplished the successful mechanical integration of actuators and drivetrain systems as measured by student robots completing autonomous challenges, by guiding hands-on builds that combined motors, sensors, and structural components into working robotic mechanisms."
       ],
     },
   ],
@@ -116,6 +116,12 @@ export const portfolioConfig = {
       type: "award",
       year: "2024-2025",
     },
+    {
+      title: "MATLAB Onramp",
+      description: "Completed introductory MATLAB programming and numerical computing training",
+      type: "certification", // "certification" or "award"
+      year: "2024",
+    } 
   ],
 
   // --------------------------------
@@ -142,47 +148,47 @@ export const portfolioConfig = {
     {
       id: 2,
       title: "Automatic Cat Feeder",
-      summary: "Arduino-based automated pet feeding system with precise timing and 3D-printed components.",
-      description: "Accomplished scheduled automation as measured by ±2 s timing accuracy and mechanical robustness measured by 30+ successful dispense cycles, by programming Arduino-based motor control and designing 3D-printed components.",
+      summary: "Microcontroller-based automated feeding system with custom 3D-printed enclosure, user interface, and sensor-based safety controls.",
+      description: "Accomplished reliable autonomous feeding as measured by consistent scheduled and manual dispensing with portion control, by designing and 3D-printing a custom electronics enclosure, building a servo-driven mechanical release system, wiring all electronics, and programming time-based control logic with integrated safety sensors.",
       category: "Robotics",
-      tech: ["Arduino", "CAD", "3D Printing", "Electronics"],
+      tech: ["Arduino", "Servo Motor", "Electronics", "Mechanical Design", "3D Printing", "Wiring", "Sensors"],
       image: "/placeholder.svg",
       github: null,
       demo: null,
       comingSoon: false,
-      problem: "Pet owners need reliable automated feeding solutions that maintain precise schedules without manual intervention.",
-      decisions: "Used Arduino for programmable timing control. Designed custom 3D-printed hopper and dispensing mechanism. Implemented stepper motor for precise portion control.",
-      outcome: "Achieved ±2s timing accuracy across 30+ successful dispense cycles. Created reliable, low-cost automated feeding solution.",
+      problem: "Pet owners need a reliable feeding system that allows scheduled and manual control, portion adjustment, and safe operation during power outages.",
+      decisions: "Designed and 3D-printed a custom enclosure to securely house all electronics and user controls. Implemented a servo-based dispensing mechanism with adjustable rotation time for portion control. Integrated a real-time display and onboard buttons for setting feed times and manual dispensing. Added a bowl detection sensor to prevent overfilling and a backup dispensing sensor to ensure food release during power outages. Completed all electrical wiring and system integration.",
+      outcome: "Delivered a fully integrated automated feeding system with scheduled and manual control, adjustable portions, real-time display, overflow prevention, and fail-safe operation during power outages, all housed in a custom-designed 3D-printed enclosure."
     },
     {
       id: 3,
       title: "3D-Printed Robotic Arm",
-      summary: "4-DOF articulated robotic arm with servo control and precision positioning.",
-      description: "Accomplished articulated motion as measured by 4 degrees of freedom and ±5° repeatability, by assembling and programming servo-controlled 3D-printed joints.",
+      summary: "4-DOF articulated robotic arm built from 3D-printed components with servo-based joint actuation and Arduino control.",
+      description: "Accomplished multi-axis articulated motion as measured by 4 independent degrees of freedom and repeatable joint positioning, by assembling a fully 3D-printed mechanical structure and programming servo-controlled joints using Arduino.",
       category: "Robotics",
-      tech: ["Arduino", "Servo Control", "Mechanical Design"],
+      tech: ["Arduino", "Servo Motors", "3D Printing", "Mechanical Assembly", "Electronics"],
       image: "/placeholder.svg",
       github: null,
       demo: null,
       comingSoon: false,
-      problem: "Building an accessible, educational robotic arm that demonstrates fundamental robotics principles.",
-      decisions: "Selected servo motors for precise angular control. Designed modular joint system for easy assembly and maintenance. Used PLA for structural components.",
-      outcome: "Achieved 4 degrees of freedom with ±5° repeatability. Created functional demonstration platform for robotics education.",
+      problem: "An affordable and educational robotic arm was needed to demonstrate core robotics concepts such as kinematics, joint actuation, and coordinated motion.",
+      decisions: "Used 3D-printed structural components for the base, links, and joints to reduce cost and allow rapid iteration. Selected servo motors for direct joint actuation and simple control. Followed a modular joint design to simplify assembly and maintenance. Completed full mechanical assembly and electrical wiring to integrate all servos with the Arduino controller.",
+      outcome: "Successfully built and operated a 4-DOF robotic arm capable of coordinated multi-joint motion, providing a functional platform for learning mechanical design, actuation, and embedded control."
     },
     {
       id: 4,
       title: "Interactive Hungry Robot",
-      summary: "Autonomous robot with ultrasonic sensing and real-time object detection.",
-      description: "Accomplished autonomous object detection as measured by 2–40 cm sensing range and <0.5 s reaction time, by integrating ultrasonic sensors and motorized actuation.",
+      summary: "Autonomous interactive robot using ultrasonic sensing and motorized actuation to respond to nearby objects.",
+      description: "Accomplished autonomous interaction as measured by reliable object detection and immediate mechanical response, by integrating an ultrasonic distance sensor with Arduino-based control and designing motor-driven actuation.",
       category: "Robotics",
-      tech: ["Arduino", "Ultrasonic Sensors", "Embedded Control"],
+      tech: ["Arduino", "Ultrasonic Sensor", "3D Printing", "Mechanical Design", "Embedded Systems"],
       image: "/placeholder.svg",
       github: null,
       demo: null,
       comingSoon: false,
-      problem: "Creating an engaging interactive robot that demonstrates sensor integration and autonomous behavior.",
-      decisions: "Used HC-SR04 ultrasonic sensor for reliable distance measurement. Implemented interrupt-driven detection for fast response times. Designed expressive mechanical movements.",
-      outcome: "Achieved 2-40cm sensing range with <0.5s reaction time. Created engaging demonstration of embedded systems and sensor integration.",
+      problem: "An engaging robot was needed to demonstrate real-time sensor integration and autonomous mechanical response to environmental stimuli.",
+      decisions: "Replaced the original sensor design with an ultrasonic distance sensor for more reliable object detection. Designed and assembled a 3D-printed mechanical structure with a motorized 'mouth' mechanism to simulate eating motion. Programmed Arduino control logic to trigger actuation based on distance thresholds. Completed full wiring and system integration.",
+      outcome: "Successfully built an interactive robot that detects nearby objects using ultrasonic sensing and responds with mechanical motion, demonstrating effective integration of sensors, actuation, and embedded control in a physical system."
     },
     {
       id: 5,
@@ -198,6 +204,21 @@ export const portfolioConfig = {
       problem: "Learning game development fundamentals through building a complete, playable platformer game.",
       decisions: "Used Unity for rapid prototyping and built-in physics. Applied OOP principles for modular game architecture. Implemented state machines for enemy AI.",
       outcome: "Created fully functional platformer with player physics, enemy AI, scoring system, and checkpoint mechanics. Demonstrated proficiency in game development principles.",
+    },
+    {
+      id: 5,
+      title: "3D-Printed Conveyor Belt System",
+      summary: "Fully 3D-printed conveyor belt mechanism driven by gear transmission and designed for autonomous operation.",
+      description: "Accomplished mechanical power transmission as measured by successful belt motion using gear-driven actuation, by designing and 3D-printing interlocking gears, rollers, and structural components for a functional conveyor system.",
+      category: "Mechanical",
+      tech: ["3D Printing", "Mechanical Design", "Gears", "Power Transmission", "CAD"],
+      image: "/placeholder.svg",
+      github: null,
+      demo: null,
+      comingSoon: true,
+      problem: "Small-scale automation systems require compact, low-cost conveyor solutions to demonstrate material handling and mechanical power transmission.",
+      decisions: "Designed all structural components, rollers, and gear trains to be fully 3D printable for rapid prototyping and low cost. Selected gear-driven transmission to convert motor rotation into controlled belt motion. Planned integration of a battery-powered motor system to enable fully autonomous operation without external power.",
+      outcome: "Currently developing a fully 3D-printed conveyor belt system with gear-driven motion, with planned expansion to battery-powered autonomous operation."
     },
   ],
 
