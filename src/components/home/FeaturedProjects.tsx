@@ -1,22 +1,25 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { portfolioConfig } from "@/config/portfolio";
 
 export function FeaturedProjects() {
-  const { featuredProjects } = portfolioConfig;
+  const { projects } = portfolioConfig;
+  // Show first 3 projects as featured
+  const featuredProjects = projects.slice(0, 3);
 
   return (
     <section className="section-padding bg-muted/30">
       <div className="section-container">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-12">
-          <div>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12">
+          <div className="text-center sm:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-muted-foreground max-w-2xl">
-              Highlighted work showcasing problem-solving and technical expertise.
+              Highlighted engineering work demonstrating problem-solving abilities.
             </p>
           </div>
-          <Button variant="outline" asChild>
+          <Button asChild variant="outline">
             <Link to="/projects">
               View All Projects
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -27,61 +30,59 @@ export function FeaturedProjects() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredProjects.map((project, index) => (
             <div
-              key={project.title}
-              className="bg-card rounded-2xl overflow-hidden shadow-soft card-hover group fade-in"
+              key={project.id}
+              className="bg-card rounded-2xl overflow-hidden shadow-soft card-hover fade-in border border-border"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Project visual */}
-              <div className="h-40 bg-gradient-to-br from-primary/10 to-secondary/30 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl font-bold text-primary">
-                      {project.title.charAt(0)}
-                    </span>
-                  </div>
-                </div>
+              {/* Project Image */}
+              <div className="aspect-video bg-muted overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
-              <div className="p-6">
-                <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  <strong>Problem:</strong> {project.problem}
-                </p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Solution:</strong> {project.solution}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs font-medium bg-secondary/30 text-secondary-foreground rounded-md"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              {/* Project Info */}
+              <div className="p-6 space-y-4">
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {project.summary}
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github className="h-4 w-4" />
-                    Code
-                  </a>
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.slice(0, 3).map((tech) => (
+                    <Badge key={tech} variant="outline" className="text-xs">
+                      {tech}
+                    </Badge>
+                  ))}
+                  {project.tech.length > 3 && (
+                    <Badge variant="outline" className="text-xs">
+                      +{project.tech.length - 3}
+                    </Badge>
+                  )}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-2 pt-2">
+                  {project.github && (
+                    <Button size="sm" variant="ghost" asChild>
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4 mr-1" />
+                        Code
+                      </a>
+                    </Button>
+                  )}
                   {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      Demo
-                    </a>
+                    <Button size="sm" variant="ghost" asChild>
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4 mr-1" />
+                        Demo
+                      </a>
+                    </Button>
                   )}
                 </div>
               </div>

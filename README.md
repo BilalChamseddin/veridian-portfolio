@@ -1,73 +1,112 @@
-# Welcome to your Lovable project
+# Engineering Portfolio
 
-## Project info
+A modern, professional engineering portfolio website built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Quick Start
 
-## How can I edit this code?
+### Prerequisites
 
-There are several ways of editing your application.
+- **Node.js**: Version 18.x or higher recommended
+- **npm**: Version 9.x or higher (comes with Node.js)
 
-**Use Lovable**
+### Installation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Step 2: Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📝 Customizing Your Portfolio
 
-**Use GitHub Codespaces**
+All personal content is centralized in **one file** for easy editing:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### `src/config/portfolio.ts`
 
-## What technologies are used for this project?
+This file contains all your:
+- Personal information (name, title, email, resume URL, hero image)
+- Social links (GitHub, LinkedIn, Email)
+- Skills (categories and individual skills)
+- Experience (roles, companies, highlights)
+- Education (degrees, institutions, coursework)
+- Certifications & Awards
+- Projects (with summaries, technologies, and engineering details)
 
-This project is built with:
+Simply edit this file to personalize your portfolio!
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎨 Theme & Colors
 
-## How can I deploy this project?
+The site uses a **Forest Green** color theme with:
+- Comfortable light mode with soft backgrounds
+- Easy-on-the-eyes dark mode
+- Toggle button in the navigation bar
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Colors can be customized in `src/index.css`.
 
-## Can I connect a custom domain to my Lovable project?
+## 📁 Project Structure
 
-Yes, you can!
+```
+src/
+├── components/
+│   ├── home/           # Home page sections
+│   ├── layout/         # Navbar, Footer
+│   └── ui/             # Reusable UI components
+├── config/
+│   └── portfolio.ts    # ⭐ Your personal content here
+├── hooks/              # Custom React hooks
+├── pages/              # Page components
+└── index.css           # Global styles & theme
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🛠️ Available Scripts
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+| Command | Description |
+|---------|-------------|
+| `npm install` | Install all dependencies |
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## 🔧 Technologies Used
+
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Fast build tool
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - UI component library
+- **React Router** - Client-side routing
+- **Lucide React** - Icons
+
+## 📱 Features
+
+- ✅ Responsive design (mobile, tablet, desktop)
+- ✅ Dark/Light mode toggle
+- ✅ Smooth animations
+- ✅ Expandable project cards
+- ✅ SEO-friendly structure
+- ✅ Accessible HTML
+
+## 🌐 Deployment
+
+Build the production version:
+
+```bash
+npm run build
+```
+
+The `dist` folder contains the optimized site ready for deployment to any static hosting service (Netlify, Vercel, GitHub Pages, etc.).
+
+## 📄 License
+
+This project is open source and available under the MIT License.
