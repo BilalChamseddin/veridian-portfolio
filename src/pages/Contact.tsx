@@ -5,7 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Download, Github, Linkedin, Mail, Send, CheckCircle, Phone } from "lucide-react";
+import {
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  Send,
+  CheckCircle,
+  Phone,
+  GraduationCap,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { portfolioConfig } from "@/config/portfolio";
 
@@ -19,7 +28,6 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setIsSubmitting(false);
@@ -37,24 +45,28 @@ export default function Contact() {
         <section className="section-padding">
           <div className="section-container">
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 fade-in">Resume & Contact</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 fade-in">
+                Resume & Contact
+              </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto fade-in animate-delay-100">
-                Let's discuss how I can contribute to your team. Open to opportunities worldwide, remote-friendly.
+                Let's discuss how I can contribute to your team. Open to
+                opportunities worldwide, remote-friendly.
               </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-              {/* Resume Download & Info */}
+              {/* Resume & Contact Info */}
               <div className="space-y-8 fade-in animate-delay-200">
                 <div className="bg-card rounded-2xl p-8 shadow-soft">
                   <h2 className="text-2xl font-bold mb-4">View Resume</h2>
                   <p className="text-muted-foreground mb-6">
-                    Get a comprehensive overview of my experience, skills, and projects in a recruiter-friendly format.
+                    Get a comprehensive overview of my experience, skills, and
+                    projects in a recruiter-friendly format.
                   </p>
                   <Button variant="hero" size="lg" className="w-full" asChild>
-                    <a 
-                      href={personal.resumeUrl} 
-                      target="_blank" 
+                    <a
+                      href={personal.resumeUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       <Download className="mr-2 h-5 w-5" />
@@ -65,9 +77,9 @@ export default function Contact() {
 
                 <div className="bg-card rounded-2xl p-8 shadow-soft">
                   <h2 className="text-2xl font-bold mb-6">Connect With Me</h2>
-                  
+
                   <div className="space-y-4">
-                    {/* Email */}
+                    {/* Personal Email */}
                     <a
                       href={`mailto:${personal.email}`}
                       className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
@@ -76,8 +88,26 @@ export default function Contact() {
                         <Mail className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium">Email</p>
-                        <p className="text-sm text-muted-foreground">{personal.email}</p>
+                        <p className="font-medium">Personal</p>
+                        <p className="text-sm text-muted-foreground">
+                          {personal.email}
+                        </p>
+                      </div>
+                    </a>
+
+                    {/* University Email */}
+                    <a
+                      href={`mailto:${personal.universityEmail}`}
+                      className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <GraduationCap className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="font-medium">University</p>
+                        <p className="text-sm text-muted-foreground">
+                          {personal.universityEmail}
+                        </p>
                       </div>
                     </a>
 
@@ -93,7 +123,9 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium">LinkedIn</p>
-                        <p className="text-sm text-muted-foreground">linkedin.com/in/{social.linkedin.username}</p>
+                        <p className="text-sm text-muted-foreground">
+                          linkedin.com/in/{social.linkedin.username}
+                        </p>
                       </div>
                     </a>
 
@@ -109,7 +141,9 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium">GitHub</p>
-                        <p className="text-sm text-muted-foreground">github.com/{social.github.username}</p>
+                        <p className="text-sm text-muted-foreground">
+                          github.com/{social.github.username}
+                        </p>
                       </div>
                     </a>
 
@@ -123,7 +157,9 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium">Phone</p>
-                        <p className="text-sm text-muted-foreground">{personal.phone}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {personal.phone}
+                        </p>
                       </div>
                     </a>
                   </div>
@@ -140,9 +176,12 @@ export default function Contact() {
                       <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/30 text-primary mb-4">
                         <CheckCircle className="h-8 w-8" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
+                      <h3 className="text-xl font-semibold mb-2">
+                        Thank You!
+                      </h3>
                       <p className="text-muted-foreground">
-                        Your message has been sent. I'll get back to you within 24-48 hours.
+                        Your message has been sent. I'll get back to you within
+                        24–48 hours.
                       </p>
                       <Button
                         variant="outline"
@@ -158,7 +197,6 @@ export default function Contact() {
                         <Label htmlFor="name">Name</Label>
                         <Input
                           id="name"
-                          name="name"
                           placeholder="Your name"
                           required
                           className="bg-muted/50"
@@ -169,7 +207,6 @@ export default function Contact() {
                         <Label htmlFor="email">Email</Label>
                         <Input
                           id="email"
-                          name="email"
                           type="email"
                           placeholder="your.email@example.com"
                           required
@@ -181,9 +218,8 @@ export default function Contact() {
                         <Label htmlFor="message">Message</Label>
                         <Textarea
                           id="message"
-                          name="message"
-                          placeholder="Tell me about your project or opportunity..."
                           rows={5}
+                          placeholder="Tell me about your project or opportunity..."
                           required
                           className="bg-muted/50 resize-none"
                         />

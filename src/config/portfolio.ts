@@ -10,15 +10,16 @@ export const portfolioConfig = {
     name: "Bilal Chamseddin",
     title: "Engineering Student at University of Waterloo",
     tagline: "I design, build, and optimize engineering solutions in robotics, electronics, and software. Passionate about creating impactful technology and hands-on projects.",
-    email: "your.email@example.com",
-    phone: "+1 (123) 456-7890",
+    email: "chamseddinbilal@gmail.com",
+    phone: "+1 (905) 904-2267",
     location: "Toronto, Canada",
-    resumeUrl: "/resume.pdf",
+    resumeUrl: "/bilalchamseddinresume.html",
+    universityEmail: "bchamsed@uwaterloo.ca",
   },
   social: {
     github: { username: "BilalChamseddin", url: "https://github.com/BilalChamseddin" },
     linkedin: { username: "bilal-chamseddin", url: "https://linkedin.com/in/bilal-chamseddin" },
-    email: "your.email@example.com",
+    email: "chamseddinbilal@gmail.com",
   },
 
   // --------------------------------
