@@ -15,13 +15,15 @@ export function HeroSection() {
 
   return (
     <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-primary/5 animate-gradient-shift" />
+      {/* Static green-toned background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-primary/5" />
       
-      {/* Subtle animated orbs */}
-      <div className="absolute top-20 right-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl animate-subtle-pulse" />
-      <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-subtle-pulse" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl animate-slow-drift" />
+      {/* Subtle noise overlay with light animation */}
+      <div className="noise-overlay animate-noise" />
+      
+      {/* Very subtle color accents */}
+      <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-primary/6 rounded-full blur-3xl animate-subtle-pulse" />
+      <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-3xl animate-subtle-pulse" style={{ animationDelay: '3s' }} />
 
       <div className="section-container relative z-10">
         {/* Centered Content */}
