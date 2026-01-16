@@ -11,7 +11,7 @@ export const portfolioConfig = {
   // --------------------------------
   personal: {
     name: "Bilal Chamseddin",
-    title: "Waterloo Engineer",
+    title: "Engineering Student at UWaterloo",
     tagline:
       "I design, build, and optimize engineering solutions in robotics, electronics, and software. Passionate about creating impactful technology and hands-on projects.",
     location: "Toronto, Canada",
