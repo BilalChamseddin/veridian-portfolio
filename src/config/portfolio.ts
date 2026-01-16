@@ -240,6 +240,22 @@ export const portfolioConfig = {
       decisions: "Designed all structural components, rollers, and gear trains to be fully 3D printable for rapid prototyping and low cost. Selected gear-driven transmission to convert motor rotation into controlled belt motion. Planned integration of a battery-powered motor system to enable fully autonomous operation without external power.",
       outcome: "Currently developing a fully 3D-printed conveyor belt system with gear-driven motion, with planned expansion to battery-powered autonomous operation."
     },
+    {
+      id: 7,
+      title: "Distribution Fitting App",
+      summary: "Interactive Python app for fitting probability distributions to datasets.",
+      description: "Developed an interactive Python application that fits multiple probability distributions to data, providing statistical analysis and visualization of goodness-of-fit metrics.",
+      category: "Software",
+      tech: ["Python", "Data Analysis", "Probability Distributions", "Matplotlib", "SciPy"],
+      image: "/pic/distribution-fitting.jpg", // add an image if you have one
+      github: "https://github.com/BilalChamseddin/Distribution-Fitting-App-Bilal",
+      demo: null,
+      comingSoon: false,
+      // Engineering/Project Details
+      problem: "Data analysts needed an easy way to identify which probability distributions best model their datasets for statistical analysis and forecasting.",
+      decisions: "Built the app in Python using SciPy for distribution fitting and Matplotlib for visualization. Designed the interface to allow easy selection of distributions and display of goodness-of-fit metrics.",
+      outcome: "Successfully created an interactive tool that allows users to fit and compare multiple probability distributions, helping with exploratory data analysis and statistical modeling."
+    }
   ],
 
   // --------------------------------
