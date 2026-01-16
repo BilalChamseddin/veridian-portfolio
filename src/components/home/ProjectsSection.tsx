@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, ExternalLink, Github, Clock } from "lucide-react";
+import { ExternalLink, Github, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { portfolioConfig, Project } from "@/config/portfolio";
+import { ProjectModal } from "@/components/ProjectModal";
+import { Link } from "react-router-dom";
 
 export function ProjectsSection() {
   const { projects } = portfolioConfig;
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const toggleExpand = (id: number) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  // Show only first 3 featured projects on main page
+  const featuredProjects = projects.filter(p => !p.comingSoon).slice(0, 3);
 
   return (
     <section id="projects" className="section-padding">
@@ -22,162 +23,122 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 max-w-4xl mx-auto">
-          {projects.map((project, index) => (
+        {/* 3-Column Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {featuredProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
-              isExpanded={expandedId === project.id}
-              onToggle={() => toggleExpand(project.id)}
+              onClick={() => setSelectedProject(project)}
               delay={index * 100}
             />
           ))}
         </div>
+
+        {/* View All Projects Button */}
+        <div className="text-center">
+          <Button size="lg" variant="outline" asChild className="group">
+            <Link to="/projects">
+              View All Projects
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+        </div>
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }
 
 interface ProjectCardProps {
   project: Project;
-  isExpanded: boolean;
-  onToggle: () => void;
+  onClick: () => void;
   delay: number;
 }
 
-function ProjectCard({ project, isExpanded, onToggle, delay }: ProjectCardProps) {
+function ProjectCard({ project, onClick, delay }: ProjectCardProps) {
   return (
     <div
-      className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border"
+      className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
       style={{ animationDelay: `${delay}ms` }}
+      onClick={onClick}
     >
-      {/* Card Header */}
-      <div className="p-6">
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Project Image */}
-          <div className="w-full md:w-48 h-32 md:h-32 rounded-xl overflow-hidden bg-muted shrink-0">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
+      {/* Project Image */}
+      <div className="relative w-full h-48 overflow-hidden bg-muted">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {project.comingSoon && (
+          <div className="absolute top-3 right-3">
+            <Badge variant="secondary" className="flex items-center gap-1 bg-accent text-accent-foreground">
+              <Clock className="h-3 w-3" />
+              Coming Soon
+            </Badge>
           </div>
-
-          {/* Project Info */}
-          <div className="flex-1 space-y-3">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2">
-                  <h3 className="font-semibold text-xl">{project.title}</h3>
-                  {project.comingSoon && (
-                    <Badge variant="secondary" className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      Coming Soon
-                    </Badge>
-                  )}
-                </div>
-                <p className="text-sm text-muted-foreground mt-1">{project.summary}</p>
-              </div>
-            </div>
-
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <Badge key={tech} variant="outline" className="text-xs">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex items-center gap-3 pt-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={onToggle}
-                className="text-primary hover:text-primary"
-              >
-                {isExpanded ? (
-                  <>
-                    Hide Details
-                    <ChevronUp className="ml-1 h-4 w-4" />
-                  </>
-                ) : (
-                  <>
-                    View Details
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-              
-              {project.github && (
-                <Button variant="ghost" size="sm" asChild>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-1 h-4 w-4" />
-                    Code
-                  </a>
-                </Button>
-              )}
-              
-              {project.demo && (
-                <Button variant="ghost" size="sm" asChild>
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-1 h-4 w-4" />
-                    Demo
-                  </a>
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
+        )}
       </div>
 
-      {/* Expanded Details */}
-      {isExpanded && (
-        <div className="border-t border-border bg-muted/30 p-6 space-y-6 animate-fade-in">
-          {/* Project Summary */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h4 className="font-semibold text-lg text-primary">Project Summary</h4>
-              <div className="space-y-3">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-1">Overview</p>
-                  <p className="text-sm">{project.description}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-2">Key Technologies</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <Badge key={tech} className="bg-primary/10 text-primary hover:bg-primary/20">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* Project Info */}
+      <div className="p-5 space-y-3">
+        <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-sm text-muted-foreground line-clamp-2">
+          {project.summary}
+        </p>
 
-            {/* Engineering Details */}
-            <div className="space-y-4">
-              <h4 className="font-semibold text-lg text-primary">Engineering Details</h4>
-              <div className="space-y-3">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-1">Problem Statement</p>
-                  <p className="text-sm">{project.problem}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-1">Engineering Decisions</p>
-                  <p className="text-sm">{project.decisions}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-1">Outcome & Learnings</p>
-                  <p className="text-sm">{project.outcome}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2 pt-1">
+          {project.tech.slice(0, 3).map((tech) => (
+            <Badge key={tech} variant="outline" className="text-xs">
+              {tech}
+            </Badge>
+          ))}
+          {project.tech.length > 3 && (
+            <Badge variant="outline" className="text-xs">
+              +{project.tech.length - 3}
+            </Badge>
+          )}
         </div>
-      )}
+
+        {/* Action Links */}
+        <div className="flex items-center gap-2 pt-2">
+          {project.github && (
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              onClick={(e) => e.stopPropagation()}
+            >
+              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-1 h-4 w-4" />
+                Code
+              </a>
+            </Button>
+          )}
+          {project.demo && (
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              onClick={(e) => e.stopPropagation()}
+            >
+              <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-1 h-4 w-4" />
+                Demo
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

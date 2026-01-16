@@ -44,7 +44,7 @@ export const portfolioConfig = {
   },
 
   // --------------------------------
-  // SKILLS
+  // SKILLS (Grouped by Category)
   // --------------------------------
   skills: [
     {
@@ -56,12 +56,16 @@ export const portfolioConfig = {
       skills: ["Solidworks", "Fusion 360", "3D Printing", "Prototyping", "Mechanical Assembly"],
     },
     {
+      title: "Electronics & Robotics",
+      skills: ["Circuit Design", "Sensors", "Actuators", "Embedded Systems", "Robotics"],
+    },
+    {
       title: "Software & Tools",
-      skills: ["Git", "Unity", "Microsoft Office", "AutoCAD"],
+      skills: ["Git", "Unity", "Microsoft Office", "AutoCAD", "MATLAB"],
     },
     {
       title: "Engineering Concepts",
-      skills: ["Embedded Systems", "Robotics", "Circuit Design", "Sensors", "Actuators"],
+      skills: ["Control Systems", "Signal Processing", "Mechanics", "Thermodynamics"],
     },
   ],
 
@@ -126,7 +130,7 @@ export const portfolioConfig = {
 
   // --------------------------------
   // ALL PROJECTS
-  // Projects with full details for expandable cards
+  // Projects with full details for modal view
   // --------------------------------
   projects: [
     {
