@@ -13,7 +13,7 @@ export const portfolioConfig = {
     email: "chamseddinbilal@gmail.com",
     phone: "+1 (905) 904-2267",
     location: "Toronto, Canada",
-    resumeUrl: "/bilalchamseddinresume.html",
+    resumeUrl: "/bilalchamseddinresume.pdf",
     universityEmail: "bchamsed@uwaterloo.ca",
   },
   social: {
