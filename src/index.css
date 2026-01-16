@@ -22,8 +22,8 @@
     --secondary: 148 25% 48%;
     --secondary-foreground: 153 50% 12%;
 
-    --accent: 38 55% 42%;
-    --accent-foreground: 38 75% 15%;
+    --accent: 153 50% 28%;
+    --accent-foreground: 145 15% 96%;
 
     --muted: 145 12% 78%;
     --muted-foreground: 160 18% 38%;
@@ -37,7 +37,6 @@
 
     --radius: 0.75rem;
 
-    /* Visual tokens */
     --gradient-forest: linear-gradient(
       135deg,
       hsl(153 50% 28%) 0%,
@@ -50,34 +49,36 @@
   }
 
   .dark {
-    /* Dark Mode */
-    --background: 155 18% 15%;
-    --foreground: 145 12% 88%;
+    /* Dark Mode — Custom Palette */
+    --background: 0 0% 14%;              /* #232323 */
+    --foreground: 51 38% 86%;             /* #e9e5ce */
 
-    --card: 155 15% 20%;
-    --card-foreground: 145 12% 88%;
+    --card: 0 0% 20%;                     /* #333333 */
+    --card-foreground: 51 38% 86%;
 
-    --popover: 155 15% 20%;
-    --popover-foreground: 145 12% 88%;
+    --popover: 0 0% 20%;
+    --popover-foreground: 51 38% 86%;
 
-    --primary: 150 55% 55%;
-    --primary-foreground: 155 18% 10%;
+    /* IMPORTANT (purple) */
+    --primary: 277 49% 65%;               /* #b07ad2 */
+    --primary-foreground: 0 0% 14%;
 
-    --secondary: 150 20% 28%;
-    --secondary-foreground: 145 12% 85%;
+    --secondary: 0 0% 22%;
+    --secondary-foreground: 51 38% 86%;
 
-    --accent: 38 50% 48%;
-    --accent-foreground: 38 75% 12%;
+    /* GREEN buttons + name */
+    --accent: 127 45% 60%;                /* #6bc775 */
+    --accent-foreground: 0 0% 14%;
 
-    --muted: 155 15% 22%;
-    --muted-foreground: 145 12% 60%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 51 20% 70%;
 
     --destructive: 0 60% 38%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 51 38% 86%;
 
-    --border: 155 12% 26%;
-    --input: 155 12% 26%;
-    --ring: 150 55% 55%;
+    --border: 0 0% 26%;
+    --input: 0 0% 26%;
+    --ring: 277 49% 65%;
   }
 }
 
@@ -118,6 +119,29 @@
     background-image: var(--gradient-forest);
   }
 
+  /* GREEN CTA BUTTONS */
+  .btn-cta {
+    @apply bg-accent text-accent-foreground transition-all duration-200;
+  }
+
+  .btn-cta:hover {
+    @apply opacity-90;
+  }
+
+  /* THEME TOGGLE (purple on hover) */
+  .theme-toggle {
+    @apply transition-colors duration-200 rounded-md;
+  }
+
+  .theme-toggle:hover {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .theme-toggle:hover svg {
+    color: hsl(var(--primary-foreground));
+  }
+
   .card-hover {
     @apply transition-all duration-300 ease-out;
   }
@@ -135,7 +159,6 @@
     animation: slideUp 0.6s ease-out forwards;
   }
 
-  /* Hero — theme-safe */
   .hero {
     background-color: hsl(var(--background));
     background-image: none;
@@ -143,7 +166,6 @@
     overflow: hidden;
   }
 
-  /* Remove leftover decorative elements if present */
   .hero .circle,
   .hero .line,
   .hero .shape {
@@ -152,51 +174,26 @@
 }
 
 @layer utilities {
-  .animate-delay-100 {
-    animation-delay: 100ms;
-  }
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scrollBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 .animate-scroll-bounce {

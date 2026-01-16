@@ -61,7 +61,7 @@ export const portfolioConfig = {
     },
     {
       title: "Software & Tools",
-      skills: ["Git", "Unity", "Microsoft Office", "AutoCAD", "MATLAB"],
+      skills: ["Git", "Unity", "Microsoft Office", "MATLAB"],
     },
     {
       title: "Engineering Concepts",
@@ -82,6 +82,16 @@ export const portfolioConfig = {
         "Accomplished the successful mechanical integration of actuators and drivetrain systems as measured by student robots completing autonomous challenges, by guiding hands-on builds that combined motors, sensors, and structural components into working robotic mechanisms."
       ],
     },
+    {
+      role: "Front Desk & Facility Maintenance",
+      company: "Hub Climbing — Mississauga",
+      period: "June 2025 – Present",
+      highlights: [
+        "Ensured operational safety with 100% equipment uptime by performing inspections and troubleshooting on auto-belay systems.",
+        "Assisted members and visitors at the front desk, providing excellent customer service and guidance.",
+        "Maintained facility cleanliness, organization, and adherence to safety protocols."
+      ],
+    }
   ],
 
   // --------------------------------
@@ -110,13 +120,13 @@ export const portfolioConfig = {
   certificationsAndAwards: [
     {
       title: "Sir Isaac Newton Physics Exam",
-      description: "66th in Canada, 109th in World",
+      description: "Challenging exam for top high school students worldwide (~3,000 participants) - 66th in Canada - 109th in World",
       type: "award", // "certification" or "award"
       year: "2024",
     },
     {
       title: "Dean's List",
-      description: "TMU Fall & Winter Term",
+      description: "Awarded for maintaining top academic standing in fall and winter terms.",
       type: "award",
       year: "2024-2025",
     },
@@ -124,8 +134,14 @@ export const portfolioConfig = {
       title: "MATLAB Onramp",
       description: "Completed introductory MATLAB programming and numerical computing training",
       type: "certification", // "certification" or "award"
-      year: "2024",
-    } 
+      year: "2026",
+    },
+    {
+      title: "Revan Hackathon — First Place",
+      year: 2022,
+      description: "Secured first place in the Revan Hackathon for developing an innovative tech solution under tight deadlines.",
+      type: "award"
+    }
   ],
 
   // --------------------------------

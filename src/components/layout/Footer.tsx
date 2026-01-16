@@ -1,15 +1,27 @@
 import { Github, Linkedin, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { portfolioConfig } from "@/config/portfolio";
 
 export function Footer() {
   const { social, footer } = portfolioConfig;
+  const navigate = useNavigate();
 
   const socialLinks = [
     { icon: Github, href: social.github.url, label: "GitHub" },
     { icon: Linkedin, href: social.linkedin.url, label: "LinkedIn" },
     { icon: Mail, href: `mailto:${social.email}`, label: "Email" },
   ];
+
+  // Smooth scroll to top helper
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Navigation + scroll wrapper
+  const handleNavClick = (path: string) => {
+    navigate(path);
+    scrollToTop();
+  };
 
   return (
     <footer className="border-t border-border bg-card/50">
@@ -40,24 +52,24 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6 text-sm">
-            <Link
-              to="/"
+            <button
+              onClick={() => handleNavClick("/")}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Home
-            </Link>
-            <Link
-              to="/projects"
+            </button>
+            <button
+              onClick={() => handleNavClick("/projects")}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Projects
-            </Link>
-            <Link
-              to="/contact"
+            </button>
+            <button
+              onClick={() => handleNavClick("/contact")}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Contact
-            </Link>
+            </button>
           </div>
         </div>
       </div>

@@ -1,10 +1,7 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { cn } from "@/lib/utils";
 import { portfolioConfig } from "@/config/portfolio";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -16,6 +13,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +22,16 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleNavClick = (path: string) => {
+    navigate(path);
+    scrollToTop();
+    setIsMobileMenuOpen(false); // close mobile menu if open
+  };
 
   return (
     <header
@@ -36,10 +44,11 @@ export function Navbar() {
     >
       <nav className="section-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo — purple idle, darker purple hover */}
           <Link
             to="/"
-            className="text-xl font-bold text-primary hover:text-accent transition-colors"
+            className="text-xl font-bold text-primary hover:text-[#8a4dbb] transition-colors"
+            onClick={() => scrollToTop()}
           >
             {portfolioConfig.navbar.logo}
           </Link>
@@ -47,9 +56,9 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.href}
-                to={link.href}
+                onClick={() => handleNavClick(link.href)}
                 className={cn(
                   "text-sm font-medium transition-colors relative group",
                   location.pathname === link.href
@@ -61,25 +70,24 @@ export function Navbar() {
                 <span
                   className={cn(
                     "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
-                    location.pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                    location.pathname === link.href
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
                   )}
                 />
-              </Link>
+              </button>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            <button
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
+              className="p-2 rounded-md text-primary hover:text-[#8a4dbb] transition-colors"
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+              Menu
+            </button>
           </div>
         </div>
 
@@ -92,19 +100,18 @@ export function Navbar() {
         >
           <div className="flex flex-col gap-2 pt-2">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.href}
-                to={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => handleNavClick(link.href)}
                 className={cn(
                   "px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                   location.pathname === link.href
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:bg-muted hover:text-primary"
+                    ? "bg-primary/20 text-primary"
+                    : "text-muted-foreground hover:bg-primary/10 hover:text-primary"
                 )}
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </div>
         </div>
