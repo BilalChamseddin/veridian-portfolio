@@ -6,34 +6,19 @@
 // can be modified here without touching the code.
 
 export const portfolioConfig = {
-  // --------------------------------
-  // PERSONAL INFORMATION
-  // --------------------------------
   personal: {
     name: "Bilal Chamseddin",
-    title: "Engineering Student at UWaterloo",
-    tagline:
-      "I design, build, and optimize engineering solutions in robotics, electronics, and software. Passionate about creating impactful technology and hands-on projects.",
+    title: "Engineering Student at University of Waterloo",
+    tagline: "I design, build, and optimize engineering solutions in robotics, electronics, and software. Passionate about creating impactful technology and hands-on projects.",
+    email: "your.email@example.com",
+    phone: "+1 (123) 456-7890",
     location: "Toronto, Canada",
-    email: "Chamseddinbilal@gmail.com",
-    resumeUrl: "/bilalchamseddinresume.html",
-    // Hero image - replace with your own image URL or local path
-    heroImage: "/placeholder.svg",
+    resumeUrl: "/resume.pdf",
   },
-
-  // --------------------------------
-  // SOCIAL LINKS
-  // --------------------------------
   social: {
-    github: {
-      url: "https://github.com/BilalChamseddin",
-      username: "BilalChamseddin",
-    },
-    linkedin: {
-      url: "https://www.linkedin.com/in/bilal-chamseddin-00a896383/",
-      username: "BilalChamseddin",
-    },
-    email: "Chamseddinbilal@gmail.com",
+    github: { username: "BilalChamseddin", url: "https://github.com/BilalChamseddin" },
+    linkedin: { username: "bilal-chamseddin", url: "https://linkedin.com/in/bilal-chamseddin" },
+    email: "your.email@example.com",
   },
 
   // --------------------------------

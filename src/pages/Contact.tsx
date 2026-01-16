@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Download, Github, Linkedin, Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Send, CheckCircle, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { portfolioConfig } from "@/config/portfolio";
 
@@ -39,8 +39,7 @@ export default function Contact() {
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 fade-in">Resume & Contact</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto fade-in animate-delay-100">
-                Let's discuss how I can contribute to your team. 
-                Open to opportunities worldwide, remote-friendly.
+                Let's discuss how I can contribute to your team. Open to opportunities worldwide, remote-friendly.
               </p>
             </div>
 
@@ -50,8 +49,7 @@ export default function Contact() {
                 <div className="bg-card rounded-2xl p-8 shadow-soft">
                   <h2 className="text-2xl font-bold mb-4">View Resume</h2>
                   <p className="text-muted-foreground mb-6">
-                    Get a comprehensive overview of my experience, skills, and projects 
-                    in a recruiter-friendly format.
+                    Get a comprehensive overview of my experience, skills, and projects in a recruiter-friendly format.
                   </p>
                   <Button variant="hero" size="lg" className="w-full" asChild>
                     <a 
@@ -69,6 +67,7 @@ export default function Contact() {
                   <h2 className="text-2xl font-bold mb-6">Connect With Me</h2>
                   
                   <div className="space-y-4">
+                    {/* Email */}
                     <a
                       href={`mailto:${personal.email}`}
                       className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
@@ -82,6 +81,7 @@ export default function Contact() {
                       </div>
                     </a>
 
+                    {/* LinkedIn */}
                     <a
                       href={social.linkedin.url}
                       target="_blank"
@@ -97,6 +97,7 @@ export default function Contact() {
                       </div>
                     </a>
 
+                    {/* GitHub */}
                     <a
                       href={social.github.url}
                       target="_blank"
@@ -112,15 +113,19 @@ export default function Contact() {
                       </div>
                     </a>
 
-                    <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/50">
-                      <div className="w-10 h-10 rounded-full bg-secondary/30 flex items-center justify-center">
-                        <MapPin className="h-5 w-5 text-secondary-foreground" />
+                    {/* Phone */}
+                    <a
+                      href={`tel:${personal.phone}`}
+                      className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <Phone className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium">Location</p>
-                        <p className="text-sm text-muted-foreground">{personal.location}</p>
+                        <p className="font-medium">Phone</p>
+                        <p className="text-sm text-muted-foreground">{personal.phone}</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
