@@ -7,98 +7,99 @@
 @layer base {
   :root {
     /* Light Mode - Soft & Comfortable */
-    --background: 145 15% 96%;
-    --foreground: 160 20% 15%;
+    --background: 145 12% 94%;
+    --foreground: 160 25% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 160 20% 15%;
+    --card: 145 10% 98%;
+    --card-foreground: 160 25% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 160 20% 15%;
+    --popover: 145 10% 98%;
+    --popover-foreground: 160 25% 12%;
 
     /* Forest Green Primary */
-    --primary: 153 45% 22%;
+    --primary: 153 50% 24%;
     --primary-foreground: 145 15% 96%;
 
     /* Sage Green Secondary */
-    --secondary: 148 40% 65%;
-    --secondary-foreground: 153 45% 15%;
+    --secondary: 148 35% 60%;
+    --secondary-foreground: 153 50% 12%;
 
-    /* Moss Green Accent */
-    --accent: 150 35% 35%;
-    --accent-foreground: 145 15% 96%;
+    /* Warm Amber Accent - Complementary to Green */
+    --accent: 38 70% 50%;
+    --accent-foreground: 38 80% 15%;
 
-    --muted: 145 12% 90%;
-    --muted-foreground: 160 15% 35%;
+    --muted: 145 10% 88%;
+    --muted-foreground: 160 18% 38%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 145 15% 85%;
-    --input: 145 15% 85%;
-    --ring: 153 45% 30%;
+    --border: 145 12% 82%;
+    --input: 145 12% 82%;
+    --ring: 153 50% 30%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --gradient-forest: linear-gradient(135deg, hsl(153 45% 22%) 0%, hsl(150 35% 35%) 100%);
-    --gradient-sage: linear-gradient(135deg, hsl(148 40% 65%) 0%, hsl(145 35% 75%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(145 15% 96%) 0%, hsl(145 18% 93%) 100%);
-    --shadow-soft: 0 4px 20px -4px hsl(153 45% 22% / 0.08);
-    --shadow-card: 0 8px 30px -10px hsl(153 45% 22% / 0.12);
-    --shadow-hover: 0 12px 40px -10px hsl(153 45% 22% / 0.18);
+    --gradient-forest: linear-gradient(135deg, hsl(153 50% 24%) 0%, hsl(150 40% 32%) 100%);
+    --gradient-sage: linear-gradient(135deg, hsl(148 35% 60%) 0%, hsl(145 30% 70%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(145 12% 94%) 0%, hsl(145 14% 90%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(35 65% 55%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(153 50% 20% / 0.1);
+    --shadow-card: 0 8px 30px -10px hsl(153 50% 20% / 0.15);
+    --shadow-hover: 0 12px 40px -10px hsl(153 50% 20% / 0.2);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 145 10% 97%;
+    --sidebar-foreground: 160 25% 20%;
+    --sidebar-primary: 153 50% 24%;
+    --sidebar-primary-foreground: 145 15% 96%;
+    --sidebar-accent: 145 10% 92%;
+    --sidebar-accent-foreground: 160 25% 20%;
+    --sidebar-border: 145 12% 85%;
+    --sidebar-ring: 153 50% 30%;
   }
 
   .dark {
-    /* Dark Mode - Lighter & Easy on Eyes */
-    --background: 150 12% 12%;
-    --foreground: 145 15% 92%;
+    /* Dark Mode - Dark Green/Charcoal, Easy on Eyes */
+    --background: 155 18% 11%;
+    --foreground: 145 12% 88%;
 
-    --card: 150 10% 16%;
-    --card-foreground: 145 15% 92%;
+    --card: 155 15% 15%;
+    --card-foreground: 145 12% 88%;
 
-    --popover: 150 10% 16%;
-    --popover-foreground: 145 15% 92%;
+    --popover: 155 15% 15%;
+    --popover-foreground: 145 12% 88%;
 
     /* Lighter Primary in Dark Mode */
-    --primary: 148 42% 55%;
-    --primary-foreground: 150 12% 10%;
+    --primary: 148 45% 50%;
+    --primary-foreground: 155 18% 8%;
 
     /* Muted Secondary */
-    --secondary: 150 25% 25%;
-    --secondary-foreground: 145 15% 90%;
+    --secondary: 150 20% 22%;
+    --secondary-foreground: 145 12% 85%;
 
-    /* Accent */
-    --accent: 148 35% 40%;
-    --accent-foreground: 145 15% 95%;
+    /* Warm Amber Accent */
+    --accent: 38 55% 55%;
+    --accent-foreground: 38 80% 10%;
 
-    --muted: 150 12% 20%;
-    --muted-foreground: 145 12% 65%;
+    --muted: 155 15% 18%;
+    --muted-foreground: 145 10% 60%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 150 10% 22%;
-    --input: 150 10% 22%;
-    --ring: 148 42% 55%;
+    --border: 155 12% 22%;
+    --input: 155 12% 22%;
+    --ring: 148 45% 50%;
 
-    --sidebar-background: 150 12% 10%;
-    --sidebar-foreground: 145 15% 90%;
-    --sidebar-primary: 148 42% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 150 10% 18%;
-    --sidebar-accent-foreground: 145 15% 90%;
-    --sidebar-border: 150 10% 20%;
-    --sidebar-ring: 148 42% 55%;
+    --sidebar-background: 155 18% 9%;
+    --sidebar-foreground: 145 12% 85%;
+    --sidebar-primary: 148 45% 50%;
+    --sidebar-primary-foreground: 155 18% 8%;
+    --sidebar-accent: 155 15% 16%;
+    --sidebar-accent-foreground: 145 12% 85%;
+    --sidebar-border: 155 12% 20%;
+    --sidebar-ring: 148 45% 50%;
   }
 }
 
@@ -200,4 +201,70 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Hero background animations */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slowDrift {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(10px, -10px);
+  }
+  66% {
+    transform: translate(-5px, 5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 8s ease-in-out infinite;
+}
+
+.animate-slow-drift {
+  animation: slowDrift 20s ease-in-out infinite;
+}
+
+/* Scroll indicator animation */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
 }
