@@ -14,91 +14,80 @@ export function HeroSection() {
   };
 
   return (
-    <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-primary/5 animate-gradient-shift" />
-      
-      {/* Subtle animated orbs */}
-      <div className="absolute top-20 right-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl animate-subtle-pulse" />
-      <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-subtle-pulse" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl animate-slow-drift" />
+    <section className="hero section-padding section-bg min-h-[90vh] flex items-center justify-center relative">
+      <div className="section-container relative z-10 text-center max-w-4xl mx-auto space-y-8">
+        <div className="space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight fade-in">
+            Hi, I'm{" "}
+            <span className="text-primary">
+              {personal.name}
+            </span>
+            {" "}—{" "}
+            <span className="text-primary">
+              {personal.title}
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto fade-in animate-delay-100">
+            {personal.tagline}
+          </p>
+        </div>
 
-      <div className="section-container relative z-10">
-        {/* Centered Content */}
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight fade-in">
-              Hi, I'm{" "}
-              <span className="text-primary">
-                {personal.name}
-              </span>
-              {" "}—{" "}
-              <span className="text-primary">
-                {personal.title}
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto fade-in animate-delay-100">
-              {personal.tagline}
-            </p>
-          </div>
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in animate-delay-200">
+          <Button
+            size="lg"
+            onClick={scrollToProjects}
+            className="group"
+          >
+            View Projects
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Button>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in animate-delay-200">
-            <Button
-              size="lg"
-              onClick={scrollToProjects}
-              className="group"
+          <Button
+            size="lg"
+            variant="outline"
+            asChild
+          >
+            <a
+              href={personal.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              View Projects
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Download className="mr-2 h-4 w-4" />
+              View Resume
+            </a>
+          </Button>
+        </div>
 
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
+        {/* Social Links */}
+        <div className="flex items-center gap-4 justify-center fade-in animate-delay-300">
+          <span className="text-sm text-muted-foreground">Find me on:</span>
+          <div className="flex items-center gap-3">
+            <a
+              href={social.github.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+              aria-label="GitHub"
             >
-              <a
-                href={personal.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                View Resume
-              </a>
-            </Button>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex items-center gap-4 justify-center fade-in animate-delay-300">
-            <span className="text-sm text-muted-foreground">Find me on:</span>
-            <div className="flex items-center gap-3">
-              <a
-                href={social.github.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href={social.linkedin.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href={`mailto:${social.email}`}
-                className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-            </div>
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href={social.linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href={`mailto:${social.email}`}
+              className="p-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </div>
