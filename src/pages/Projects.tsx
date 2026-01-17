@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ExternalLink, Github, Clock, Filter } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ExternalLink, Github, Clock, Filter, X } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -11,10 +11,24 @@ const Projects = () => {
   const { projects, projectCategories } = portfolioConfig;
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeDemo, setActiveDemo] = useState<string | null>(null);
 
-  const filteredProjects = selectedCategory === "All"
-    ? projects
-    : projects.filter((p) => p.category === selectedCategory);
+  // ESC key closes demo modal
+  useEffect(() => {
+    if (!activeDemo) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveDemo(null);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeDemo]);
+
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === selectedCategory);
 
   return (
     <div className="min-h-screen">
@@ -44,13 +58,14 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Projects Grid - 3 Column */}
+          {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 onClick={() => setSelectedProject(project)}
+                onOpenDemo={(url) => setActiveDemo(url)}
                 delay={index * 100}
               />
             ))}
@@ -65,12 +80,41 @@ const Projects = () => {
       </main>
       <Footer />
 
-      {/* Project Modal */}
+      {/* Project Details Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
       />
+
+      {/* Demo Video Modal */}
+      {activeDemo && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+          onClick={() => setActiveDemo(null)}
+        >
+          <div
+            className="relative bg-background rounded-2xl shadow-2xl max-w-5xl w-full overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              className="absolute top-4 right-4 z-10 rounded-full bg-muted p-2 hover:bg-muted/70"
+              onClick={() => setActiveDemo(null)}
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {/* Lazy-loaded Video */}
+            <video
+              src={activeDemo}
+              controls
+              preload="metadata"
+              className="w-full max-h-[80vh] object-contain bg-black"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -78,10 +122,11 @@ const Projects = () => {
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
+  onOpenDemo: (url: string) => void;
   delay: number;
 }
 
-function ProjectCard({ project, onClick, delay }: ProjectCardProps) {
+function ProjectCard({ project, onClick, onOpenDemo, delay }: ProjectCardProps) {
   return (
     <div
       className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
@@ -152,13 +197,13 @@ function ProjectCard({ project, onClick, delay }: ProjectCardProps) {
             <Button
               variant="ghost"
               size="sm"
-              asChild
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpenDemo(project.demo);
+              }}
             >
-              <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-1 h-4 w-4" />
-                Demo
-              </a>
+              <ExternalLink className="mr-1 h-4 w-4" />
+              Demo
             </Button>
           )}
         </div>
