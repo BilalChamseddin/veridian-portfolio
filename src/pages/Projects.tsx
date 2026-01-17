@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink, Github, Clock, Filter, Play } from "lucide-react";
+import { ExternalLink, Github, Clock, Filter, Play, ZoomIn } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,12 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import { portfolioConfig, Project } from "@/config/portfolio";
 import { ProjectModal } from "@/components/ProjectModal";
 import { VideoModal } from "@/components/VideoModal";
+import { ImageLightbox } from "@/components/ImageLightbox";
 
 const Projects = () => {
   const { projects, projectCategories } = portfolioConfig;
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [videoProject, setVideoProject] = useState<Project | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<{ url: string; alt: string } | null>(null);
 
   const filteredProjects = selectedCategory === "All"
     ? projects
@@ -54,6 +56,7 @@ const Projects = () => {
                 project={project}
                 onClick={() => setSelectedProject(project)}
                 onDemoClick={() => setVideoProject(project)}
+                onImageClick={() => setLightboxImage({ url: project.image, alt: project.title })}
                 delay={index * 100}
               />
             ))}
@@ -84,6 +87,16 @@ const Projects = () => {
           onClose={() => setVideoProject(null)}
         />
       )}
+
+      {/* Image Lightbox */}
+      {lightboxImage && (
+        <ImageLightbox
+          imageUrl={lightboxImage.url}
+          alt={lightboxImage.alt}
+          isOpen={!!lightboxImage}
+          onClose={() => setLightboxImage(null)}
+        />
+      )}
     </div>
   );
 };
@@ -92,10 +105,11 @@ interface ProjectCardProps {
   project: Project;
   onClick: () => void;
   onDemoClick: () => void;
+  onImageClick: () => void;
   delay: number;
 }
 
-function ProjectCard({ project, onClick, onDemoClick, delay }: ProjectCardProps) {
+function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: ProjectCardProps) {
   return (
     <div
       className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
@@ -114,6 +128,19 @@ function ProjectCard({ project, onClick, onDemoClick, delay }: ProjectCardProps)
             {project.category}
           </Badge>
         </div>
+        {/* View Full Image Button */}
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation();
+            onImageClick();
+          }}
+          className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm hover:bg-background opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <ZoomIn className="h-4 w-4 mr-1" />
+          View Full
+        </Button>
         {project.comingSoon && (
           <div className="absolute top-3 right-3">
             <Badge variant="secondary" className="flex items-center gap-1 bg-accent text-accent-foreground">
