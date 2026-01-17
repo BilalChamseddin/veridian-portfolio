@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Minimize2, Maximize2, ExternalLink, Github, Clock, Play } from "lucide-react";
+import { Minimize2, Maximize2, ExternalLink, Github, Clock, Play, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Project } from "@/config/portfolio";
 import { VideoModal } from "@/components/VideoModal";
+import { ImageLightbox } from "@/components/ImageLightbox";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -20,6 +21,7 @@ interface ProjectModalProps {
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const [isImageMinimized, setIsImageMinimized] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isImageLightboxOpen, setIsImageLightboxOpen] = useState(false);
 
   if (!project) return null;
 
@@ -37,6 +39,15 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             
             {/* Image Controls */}
             <div className="absolute top-3 right-3 flex items-center gap-2">
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setIsImageLightboxOpen(true)}
+                className="bg-background/80 backdrop-blur-sm hover:bg-background"
+              >
+                <ZoomIn className="h-4 w-4 mr-1" />
+                View Full
+              </Button>
               <Button
                 variant="secondary"
                 size="sm"
@@ -158,6 +169,14 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
           onClose={() => setIsVideoModalOpen(false)}
         />
       )}
+
+      {/* Image Lightbox */}
+      <ImageLightbox
+        imageUrl={project.image}
+        alt={project.title}
+        isOpen={isImageLightboxOpen}
+        onClose={() => setIsImageLightboxOpen(false)}
+      />
     </>
   );
 }
