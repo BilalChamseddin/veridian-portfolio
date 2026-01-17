@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
-import { ExternalLink, Github, Clock, Filter, X } from "lucide-react";
-=======
 import { useState } from "react";
 import { ExternalLink, Github, Clock, Filter, Play, ZoomIn } from "lucide-react";
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -18,29 +13,12 @@ const Projects = () => {
   const { projects, projectCategories } = portfolioConfig;
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-<<<<<<< HEAD
-  const [activeDemo, setActiveDemo] = useState<string | null>(null);
-=======
   const [videoProject, setVideoProject] = useState<Project | null>(null);
   const [lightboxImage, setLightboxImage] = useState<{ url: string; alt: string } | null>(null);
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 
-  // ESC key closes demo modal
-  useEffect(() => {
-    if (!activeDemo) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActiveDemo(null);
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeDemo]);
-
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter((p) => p.category === selectedCategory);
 
   return (
     <div className="min-h-screen">
@@ -70,19 +48,15 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Projects Grid */}
+          {/* Projects Grid - 3 Column */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 onClick={() => setSelectedProject(project)}
-<<<<<<< HEAD
-                onOpenDemo={(url) => setActiveDemo(url)}
-=======
                 onDemoClick={() => setVideoProject(project)}
                 onImageClick={() => setLightboxImage({ url: project.image, alt: project.title })}
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
                 delay={index * 100}
               />
             ))}
@@ -97,42 +71,13 @@ const Projects = () => {
       </main>
       <Footer />
 
-      {/* Project Details Modal */}
+      {/* Project Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
       />
 
-<<<<<<< HEAD
-      {/* Demo Video Modal */}
-      {activeDemo && (
-        <div
-          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
-          onClick={() => setActiveDemo(null)}
-        >
-          <div
-            className="relative bg-background rounded-2xl shadow-2xl max-w-5xl w-full overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              className="absolute top-4 right-4 z-10 rounded-full bg-muted p-2 hover:bg-muted/70"
-              onClick={() => setActiveDemo(null)}
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            {/* Lazy-loaded Video */}
-            <video
-              src={activeDemo}
-              controls
-              preload="metadata"
-              className="w-full max-h-[80vh] object-contain bg-black"
-            />
-          </div>
-        </div>
-=======
       {/* Video Modal */}
       {videoProject?.demoVideo && (
         <VideoModal
@@ -151,7 +96,6 @@ const Projects = () => {
           isOpen={!!lightboxImage}
           onClose={() => setLightboxImage(null)}
         />
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
       )}
     </div>
   );
@@ -160,20 +104,12 @@ const Projects = () => {
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
-<<<<<<< HEAD
-  onOpenDemo: (url: string) => void;
-  delay: number;
-}
-
-function ProjectCard({ project, onClick, onOpenDemo, delay }: ProjectCardProps) {
-=======
   onDemoClick: () => void;
   onImageClick: () => void;
   delay: number;
 }
 
 function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: ProjectCardProps) {
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
   return (
     <div
       className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
@@ -257,20 +193,13 @@ function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: Pro
             <Button
               variant="ghost"
               size="sm"
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpenDemo(project.demo);
-              }}
+              asChild
+              onClick={(e) => e.stopPropagation()}
             >
-<<<<<<< HEAD
-              <ExternalLink className="mr-1 h-4 w-4" />
-              Demo
-=======
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-1 h-4 w-4" />
                 Live Demo
               </a>
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
             </Button>
           )}
           {project.demoVideo && (
