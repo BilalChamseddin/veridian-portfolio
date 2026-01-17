@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { ExternalLink, Github, Clock, Filter } from "lucide-react";
+import { ExternalLink, Github, Clock, Filter, Play } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { portfolioConfig, Project } from "@/config/portfolio";
 import { ProjectModal } from "@/components/ProjectModal";
+import { VideoModal } from "@/components/VideoModal";
 
 const Projects = () => {
   const { projects, projectCategories } = portfolioConfig;
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [videoProject, setVideoProject] = useState<Project | null>(null);
 
   const filteredProjects = selectedCategory === "All"
     ? projects
@@ -51,6 +53,7 @@ const Projects = () => {
                 key={project.id}
                 project={project}
                 onClick={() => setSelectedProject(project)}
+                onDemoClick={() => setVideoProject(project)}
                 delay={index * 100}
               />
             ))}
@@ -71,6 +74,16 @@ const Projects = () => {
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
       />
+
+      {/* Video Modal */}
+      {videoProject?.demoVideo && (
+        <VideoModal
+          videoUrl={videoProject.demoVideo}
+          title={videoProject.title}
+          isOpen={!!videoProject}
+          onClose={() => setVideoProject(null)}
+        />
+      )}
     </div>
   );
 };
@@ -78,10 +91,11 @@ const Projects = () => {
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
+  onDemoClick: () => void;
   delay: number;
 }
 
-function ProjectCard({ project, onClick, delay }: ProjectCardProps) {
+function ProjectCard({ project, onClick, onDemoClick, delay }: ProjectCardProps) {
   return (
     <div
       className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
@@ -157,8 +171,21 @@ function ProjectCard({ project, onClick, delay }: ProjectCardProps) {
             >
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-1 h-4 w-4" />
-                Demo
+                Live Demo
               </a>
+            </Button>
+          )}
+          {project.demoVideo && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDemoClick();
+              }}
+            >
+              <Play className="mr-1 h-4 w-4" />
+              Demo
             </Button>
           )}
         </div>

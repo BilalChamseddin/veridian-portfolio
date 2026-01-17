@@ -145,6 +145,10 @@ export const portfolioConfig = {
       image: "/pic/teng.jpg",
       github: null,
       demo: null,
+      // Demo Video Configuration
+      // Set demoVideo to a video file path or URL to enable the Demo button
+      // Leave as null to hide the Demo button
+      demoVideo: null, // e.g., "/videos/teng-demo.mp4" or "https://example.com/video.mp4"
       comingSoon: false,
       // Engineering Details
       problem: "Needed to create a sustainable energy harvesting solution that could convert mechanical motion into electrical energy efficiently.",
@@ -161,6 +165,7 @@ export const portfolioConfig = {
       image: "/placeholder.svg",
       github: null,
       demo: null,
+      demoVideo: null,
       comingSoon: false,
       problem: "Pet owners need a reliable feeding system that allows scheduled and manual control, portion adjustment, and safe operation during power outages.",
       decisions: "Designed and 3D-printed a custom enclosure to securely house all electronics and user controls. Implemented a servo-based dispensing mechanism with adjustable rotation time for portion control. Integrated a real-time display and onboard buttons for setting feed times and manual dispensing. Added a bowl detection sensor to prevent overfilling and a backup dispensing sensor to ensure food release during power outages. Completed all electrical wiring and system integration.",
@@ -176,6 +181,7 @@ export const portfolioConfig = {
       image: "/placeholder.svg",
       github: null,
       demo: null,
+      demoVideo: null,
       comingSoon: false,
       problem: "An affordable and educational robotic arm was needed to demonstrate core robotics concepts such as kinematics, joint actuation, and coordinated motion.",
       decisions: "Used 3D-printed structural components for the base, links, and joints to reduce cost and allow rapid iteration. Selected servo motors for direct joint actuation and simple control. Followed a modular joint design to simplify assembly and maintenance. Completed full mechanical assembly and electrical wiring to integrate all servos with the Arduino controller.",
@@ -191,6 +197,7 @@ export const portfolioConfig = {
       image: "/pic/trash.jpg",
       github: null,
       demo: null,
+      demoVideo: null,
       comingSoon: false,
       problem: "An engaging robot was needed to demonstrate real-time sensor integration and autonomous mechanical response to environmental stimuli.",
       decisions: "Replaced the original sensor design with an ultrasonic distance sensor for more reliable object detection. Designed and assembled a 3D-printed mechanical structure with a motorized 'mouth' mechanism to simulate eating motion. Programmed Arduino control logic to trigger actuation based on distance thresholds. Completed full wiring and system integration.",
@@ -206,6 +213,7 @@ export const portfolioConfig = {
       image: "/pic/game.jpg",
       github: null,
       demo: null,
+      demoVideo: null,
       comingSoon: false,
       problem: "Learning game development fundamentals through building a complete, playable platformer game.",
       decisions: "Used Unity for rapid prototyping and built-in physics. Applied OOP principles for modular game architecture. Implemented state machines for enemy AI.",
@@ -221,6 +229,7 @@ export const portfolioConfig = {
       image: "/placeholder.svg",
       github: null,
       demo: null,
+      demoVideo: null,
       comingSoon: true,
       problem: "Small-scale automation systems require compact, low-cost conveyor solutions to demonstrate material handling and mechanical power transmission.",
       decisions: "Designed all structural components, rollers, and gear trains to be fully 3D printable for rapid prototyping and low cost. Selected gear-driven transmission to convert motor rotation into controlled belt motion. Planned integration of a battery-powered motor system to enable fully autonomous operation without external power.",
@@ -233,11 +242,11 @@ export const portfolioConfig = {
       description: "Developed an interactive Python application that fits multiple probability distributions to data, providing statistical analysis and visualization of goodness-of-fit metrics.",
       category: "Software",
       tech: ["Python", "Data Analysis", "Probability Distributions", "Matplotlib", "SciPy"],
-      image: "/pic/distribution-fitting.jpg", // add an image if you have one
+      image: "/pic/distribution-fitting.jpg",
       github: "https://github.com/BilalChamseddin/Distribution-Fitting-App-Bilal",
       demo: null,
+      demoVideo: null,
       comingSoon: false,
-      // Engineering/Project Details
       problem: "Data analysts needed an easy way to identify which probability distributions best model their datasets for statistical analysis and forecasting.",
       decisions: "Built the app in Python using SciPy for distribution fitting and Matplotlib for visualization. Designed the interface to allow easy selection of distributions and display of goodness-of-fit metrics.",
       outcome: "Successfully created an interactive tool that allows users to fit and compare multiple probability distributions, helping with exploratory data analysis and statistical modeling."
