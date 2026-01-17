@@ -1,17 +1,29 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { ExternalLink, Github, Clock, Filter, X } from "lucide-react";
+=======
+import { useState } from "react";
+import { ExternalLink, Github, Clock, Filter, Play, ZoomIn } from "lucide-react";
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { portfolioConfig, Project } from "@/config/portfolio";
 import { ProjectModal } from "@/components/ProjectModal";
+import { VideoModal } from "@/components/VideoModal";
+import { ImageLightbox } from "@/components/ImageLightbox";
 
 const Projects = () => {
   const { projects, projectCategories } = portfolioConfig;
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+<<<<<<< HEAD
   const [activeDemo, setActiveDemo] = useState<string | null>(null);
+=======
+  const [videoProject, setVideoProject] = useState<Project | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<{ url: string; alt: string } | null>(null);
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 
   // ESC key closes demo modal
   useEffect(() => {
@@ -65,7 +77,12 @@ const Projects = () => {
                 key={project.id}
                 project={project}
                 onClick={() => setSelectedProject(project)}
+<<<<<<< HEAD
                 onOpenDemo={(url) => setActiveDemo(url)}
+=======
+                onDemoClick={() => setVideoProject(project)}
+                onImageClick={() => setLightboxImage({ url: project.image, alt: project.title })}
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
                 delay={index * 100}
               />
             ))}
@@ -87,6 +104,7 @@ const Projects = () => {
         onClose={() => setSelectedProject(null)}
       />
 
+<<<<<<< HEAD
       {/* Demo Video Modal */}
       {activeDemo && (
         <div
@@ -114,6 +132,26 @@ const Projects = () => {
             />
           </div>
         </div>
+=======
+      {/* Video Modal */}
+      {videoProject?.demoVideo && (
+        <VideoModal
+          videoUrl={videoProject.demoVideo}
+          title={videoProject.title}
+          isOpen={!!videoProject}
+          onClose={() => setVideoProject(null)}
+        />
+      )}
+
+      {/* Image Lightbox */}
+      {lightboxImage && (
+        <ImageLightbox
+          imageUrl={lightboxImage.url}
+          alt={lightboxImage.alt}
+          isOpen={!!lightboxImage}
+          onClose={() => setLightboxImage(null)}
+        />
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
       )}
     </div>
   );
@@ -122,11 +160,20 @@ const Projects = () => {
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
+<<<<<<< HEAD
   onOpenDemo: (url: string) => void;
   delay: number;
 }
 
 function ProjectCard({ project, onClick, onOpenDemo, delay }: ProjectCardProps) {
+=======
+  onDemoClick: () => void;
+  onImageClick: () => void;
+  delay: number;
+}
+
+function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: ProjectCardProps) {
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
   return (
     <div
       className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
@@ -145,6 +192,19 @@ function ProjectCard({ project, onClick, onOpenDemo, delay }: ProjectCardProps) 
             {project.category}
           </Badge>
         </div>
+        {/* View Full Image Button */}
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation();
+            onImageClick();
+          }}
+          className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm hover:bg-background opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <ZoomIn className="h-4 w-4 mr-1" />
+          View Full
+        </Button>
         {project.comingSoon && (
           <div className="absolute top-3 right-3">
             <Badge variant="secondary" className="flex items-center gap-1 bg-accent text-accent-foreground">
@@ -202,7 +262,27 @@ function ProjectCard({ project, onClick, onOpenDemo, delay }: ProjectCardProps) 
                 onOpenDemo(project.demo);
               }}
             >
+<<<<<<< HEAD
               <ExternalLink className="mr-1 h-4 w-4" />
+              Demo
+=======
+              <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-1 h-4 w-4" />
+                Live Demo
+              </a>
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
+            </Button>
+          )}
+          {project.demoVideo && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDemoClick();
+              }}
+            >
+              <Play className="mr-1 h-4 w-4" />
               Demo
             </Button>
           )}

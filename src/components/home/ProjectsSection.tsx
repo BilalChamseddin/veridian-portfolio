@@ -1,13 +1,26 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { ExternalLink, Github, Clock, ArrowRight, X } from "lucide-react";
+=======
+import { useState } from "react";
+import { ExternalLink, Github, Clock, ArrowRight, Play, ZoomIn } from "lucide-react";
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { portfolioConfig, Project } from "@/config/portfolio";
 import { ProjectModal } from "@/components/ProjectModal";
+import { VideoModal } from "@/components/VideoModal";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { Link } from "react-router-dom";
 
 export function ProjectsSection() {
   const { projects } = portfolioConfig;
+<<<<<<< HEAD
+=======
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [videoProject, setVideoProject] = useState<Project | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<{ url: string; alt: string } | null>(null);
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeDemo, setActiveDemo] = useState<string | null>(null);
@@ -45,6 +58,12 @@ export function ProjectsSection() {
             <ProjectCard
               key={project.id}
               project={project}
+<<<<<<< HEAD
+=======
+              onClick={() => setSelectedProject(project)}
+              onDemoClick={() => setVideoProject(project)}
+              onImageClick={() => setLightboxImage({ url: project.image, alt: project.title })}
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
               delay={index * 100}
               onOpenProject={() => setSelectedProject(project)}
               onOpenDemo={(url) => setActiveDemo(url)}
@@ -70,6 +89,7 @@ export function ProjectsSection() {
         onClose={() => setSelectedProject(null)}
       />
 
+<<<<<<< HEAD
       {/* Demo Video Modal */}
       {activeDemo && (
         <div
@@ -97,6 +117,26 @@ export function ProjectsSection() {
             />
           </div>
         </div>
+=======
+      {/* Video Modal */}
+      {videoProject?.demoVideo && (
+        <VideoModal
+          videoUrl={videoProject.demoVideo}
+          title={videoProject.title}
+          isOpen={!!videoProject}
+          onClose={() => setVideoProject(null)}
+        />
+      )}
+
+      {/* Image Lightbox */}
+      {lightboxImage && (
+        <ImageLightbox
+          imageUrl={lightboxImage.url}
+          alt={lightboxImage.alt}
+          isOpen={!!lightboxImage}
+          onClose={() => setLightboxImage(null)}
+        />
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
       )}
     </section>
   );
@@ -104,17 +144,27 @@ export function ProjectsSection() {
 
 interface ProjectCardProps {
   project: Project;
+<<<<<<< HEAD
+=======
+  onClick: () => void;
+  onDemoClick: () => void;
+  onImageClick: () => void;
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
   delay: number;
   onOpenProject: () => void;
   onOpenDemo: (url: string) => void;
 }
 
+<<<<<<< HEAD
 function ProjectCard({
   project,
   delay,
   onOpenProject,
   onOpenDemo,
 }: ProjectCardProps) {
+=======
+function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: ProjectCardProps) {
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
   return (
     <div
       className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
@@ -128,7 +178,23 @@ function ProjectCard({
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
+<<<<<<< HEAD
 
+=======
+        {/* View Full Image Button */}
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation();
+            onImageClick();
+          }}
+          className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm hover:bg-background opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <ZoomIn className="h-4 w-4 mr-1" />
+          View Full
+        </Button>
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
         {project.comingSoon && (
           <div className="absolute top-3 right-3">
             <Badge variant="secondary" className="flex items-center gap-1 bg-accent text-accent-foreground">
@@ -188,7 +254,27 @@ function ProjectCard({
                 onOpenDemo(project.demo!);
               }}
             >
+<<<<<<< HEAD
               <ExternalLink className="mr-1 h-4 w-4" />
+              Demo
+=======
+              <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-1 h-4 w-4" />
+                Live Demo
+              </a>
+>>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
+            </Button>
+          )}
+          {project.demoVideo && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDemoClick();
+              }}
+            >
+              <Play className="mr-1 h-4 w-4" />
               Demo
             </Button>
           )}
