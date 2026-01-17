@@ -144,15 +144,13 @@ export const portfolioConfig = {
       tech: ["CAD", "Prototyping", "Nanomaterials"],
       image: "/pic/teng.jpg",
       github: null,
-<<<<<<< HEAD
-      demo: "/videos/teng.mp4",
-=======
+
+
       demo: null,
       // Demo Video Configuration
       // Set demoVideo to a video file path or URL to enable the Demo button
       // Leave as null to hide the Demo button
       demoVideo: null, // e.g., "/videos/teng-demo.mp4" or "https://example.com/video.mp4"
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
       comingSoon: false,
       // Engineering Details
       problem: "Needed to create a sustainable energy harvesting solution that could convert mechanical motion into electrical energy efficiently.",
@@ -168,12 +166,8 @@ export const portfolioConfig = {
       tech: ["Arduino", "Servo Motor", "Electronics", "Mechanical Design", "3D Printing", "Wiring", "Sensors"],
       image: "/pic/catfeeder.jpg",
       github: null,
-<<<<<<< HEAD
-      demo: "/videos/catfeeder.mp4",
-=======
       demo: null,
       demoVideo: null,
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
       comingSoon: false,
       problem: "Pet owners need a reliable feeding system that allows scheduled and manual control, portion adjustment, and safe operation during power outages.",
       decisions: "Designed and 3D-printed a custom enclosure to securely house all electronics and user controls. Implemented a servo-based dispensing mechanism with adjustable rotation time for portion control. Integrated a real-time display and onboard buttons for setting feed times and manual dispensing. Added a bowl detection sensor to prevent overfilling and a backup dispensing sensor to ensure food release during power outages. Completed all electrical wiring and system integration.",
@@ -188,12 +182,8 @@ export const portfolioConfig = {
       tech: ["Arduino", "Servo Motors", "3D Printing", "Mechanical Assembly", "Electronics"],
       image: "/pic/robotarm.jpg",
       github: null,
-<<<<<<< HEAD
-      demo: "/videos/armrobot.mp4",
-=======
       demo: null,
       demoVideo: null,
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
       comingSoon: false,
       problem: "An affordable and educational robotic arm was needed to demonstrate core robotics concepts such as kinematics, joint actuation, and coordinated motion.",
       decisions: "Used 3D-printed structural components for the base, links, and joints to reduce cost and allow rapid iteration. Selected servo motors for direct joint actuation and simple control. Followed a modular joint design to simplify assembly and maintenance. Completed full mechanical assembly and electrical wiring to integrate all servos with the Arduino controller.",
