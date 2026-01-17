@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { useEffect, useState } from "react";
-import { ExternalLink, Github, Clock, ArrowRight, X } from "lucide-react";
-=======
 import { useState } from "react";
 import { ExternalLink, Github, Clock, ArrowRight, Play, ZoomIn } from "lucide-react";
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { portfolioConfig, Project } from "@/config/portfolio";
@@ -15,31 +10,11 @@ import { Link } from "react-router-dom";
 
 export function ProjectsSection() {
   const { projects } = portfolioConfig;
-<<<<<<< HEAD
-=======
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [videoProject, setVideoProject] = useState<Project | null>(null);
   const [lightboxImage, setLightboxImage] = useState<{ url: string; alt: string } | null>(null);
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
 
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [activeDemo, setActiveDemo] = useState<string | null>(null);
-
-  // ESC key closes demo modal
-  useEffect(() => {
-    if (!activeDemo) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setActiveDemo(null);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeDemo]);
-
-  // Show only first 3 featured projects
+  // Show only first 3 featured projects on main page
   const featuredProjects = projects.filter(p => !p.comingSoon).slice(0, 3);
 
   return (
@@ -58,20 +33,15 @@ export function ProjectsSection() {
             <ProjectCard
               key={project.id}
               project={project}
-<<<<<<< HEAD
-=======
               onClick={() => setSelectedProject(project)}
               onDemoClick={() => setVideoProject(project)}
               onImageClick={() => setLightboxImage({ url: project.image, alt: project.title })}
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
               delay={index * 100}
-              onOpenProject={() => setSelectedProject(project)}
-              onOpenDemo={(url) => setActiveDemo(url)}
             />
           ))}
         </div>
 
-        {/* View All Projects */}
+        {/* View All Projects Button */}
         <div className="text-center">
           <Button size="lg" variant="outline" asChild className="group">
             <Link to="/projects">
@@ -82,42 +52,13 @@ export function ProjectsSection() {
         </div>
       </div>
 
-      {/* Project Details Modal */}
+      {/* Project Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
       />
 
-<<<<<<< HEAD
-      {/* Demo Video Modal */}
-      {activeDemo && (
-        <div
-          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
-          onClick={() => setActiveDemo(null)}
-        >
-          <div
-            className="relative bg-background rounded-2xl shadow-2xl max-w-5xl w-full overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              className="absolute top-4 right-4 z-10 rounded-full bg-muted p-2 hover:bg-muted/70"
-              onClick={() => setActiveDemo(null)}
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            {/* Lazy-loaded Video */}
-            <video
-              src={activeDemo}
-              controls
-              preload="metadata"
-              className="w-full max-h-[80vh] object-contain bg-black"
-            />
-          </div>
-        </div>
-=======
       {/* Video Modal */}
       {videoProject?.demoVideo && (
         <VideoModal
@@ -136,7 +77,6 @@ export function ProjectsSection() {
           isOpen={!!lightboxImage}
           onClose={() => setLightboxImage(null)}
         />
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
       )}
     </section>
   );
@@ -144,43 +84,26 @@ export function ProjectsSection() {
 
 interface ProjectCardProps {
   project: Project;
-<<<<<<< HEAD
-=======
   onClick: () => void;
   onDemoClick: () => void;
   onImageClick: () => void;
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
   delay: number;
-  onOpenProject: () => void;
-  onOpenDemo: (url: string) => void;
 }
 
-<<<<<<< HEAD
-function ProjectCard({
-  project,
-  delay,
-  onOpenProject,
-  onOpenDemo,
-}: ProjectCardProps) {
-=======
 function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: ProjectCardProps) {
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
   return (
     <div
       className="bg-card rounded-2xl shadow-soft overflow-hidden fade-in border border-border card-hover cursor-pointer group"
       style={{ animationDelay: `${delay}ms` }}
-      onClick={onOpenProject}
+      onClick={onClick}
     >
-      {/* Image */}
-      <div className="relative w-full h-48 bg-muted">
+      {/* Project Image */}
+      <div className="relative w-full h-48 overflow-hidden bg-muted">
         <img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-<<<<<<< HEAD
-
-=======
         {/* View Full Image Button */}
         <Button
           variant="secondary"
@@ -194,7 +117,6 @@ function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: Pro
           <ZoomIn className="h-4 w-4 mr-1" />
           View Full
         </Button>
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
         {project.comingSoon && (
           <div className="absolute top-3 right-3">
             <Badge variant="secondary" className="flex items-center gap-1 bg-accent text-accent-foreground">
@@ -205,17 +127,16 @@ function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: Pro
         )}
       </div>
 
-      {/* Content */}
+      {/* Project Info */}
       <div className="p-5 space-y-3">
         <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
           {project.title}
         </h3>
-
         <p className="text-sm text-muted-foreground line-clamp-2">
           {project.summary}
         </p>
 
-        {/* Tech */}
+        {/* Tech Stack */}
         <div className="flex flex-wrap gap-2 pt-1">
           {project.tech.slice(0, 3).map((tech) => (
             <Badge key={tech} variant="outline" className="text-xs">
@@ -229,7 +150,7 @@ function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: Pro
           )}
         </div>
 
-        {/* Buttons */}
+        {/* Action Links */}
         <div className="flex items-center gap-2 pt-2">
           {project.github && (
             <Button
@@ -244,25 +165,17 @@ function ProjectCard({ project, onClick, onDemoClick, onImageClick, delay }: Pro
               </a>
             </Button>
           )}
-
           {project.demo && (
             <Button
               variant="ghost"
               size="sm"
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpenDemo(project.demo!);
-              }}
+              asChild
+              onClick={(e) => e.stopPropagation()}
             >
-<<<<<<< HEAD
-              <ExternalLink className="mr-1 h-4 w-4" />
-              Demo
-=======
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-1 h-4 w-4" />
                 Live Demo
               </a>
->>>>>>> c15aae5fae67bba09d1e635532f44ef9c151dc43
             </Button>
           )}
           {project.demoVideo && (

@@ -13,7 +13,7 @@ export const portfolioConfig = {
     email: "chamseddinbilal@gmail.com",
     phone: "+1 (905) 904-2267",
     location: "Toronto, Canada",
-    resumeUrl: "/bilalchamseddinresume.pdf ",
+    resumeUrl: "/bilalchamseddinresume.pdf",
     universityEmail: "bchamsed@uwaterloo.ca",
   },
   social: {
@@ -144,8 +144,6 @@ export const portfolioConfig = {
       tech: ["CAD", "Prototyping", "Nanomaterials"],
       image: "/pic/teng.jpg",
       github: null,
-
-
       demo: null,
       // Demo Video Configuration
       // Set demoVideo to a video file path or URL to enable the Demo button
@@ -164,7 +162,7 @@ export const portfolioConfig = {
       description: "Accomplished reliable autonomous feeding as measured by consistent scheduled and manual dispensing with portion control, by designing and 3D-printing a custom electronics enclosure, building a servo-driven mechanical release system, wiring all electronics, and programming time-based control logic with integrated safety sensors.",
       category: "Robotics",
       tech: ["Arduino", "Servo Motor", "Electronics", "Mechanical Design", "3D Printing", "Wiring", "Sensors"],
-      image: "/pic/catfeeder.jpg",
+      image: "/placeholder.svg",
       github: null,
       demo: null,
       demoVideo: null,
@@ -180,7 +178,7 @@ export const portfolioConfig = {
       description: "Accomplished multi-axis articulated motion as measured by 4 independent degrees of freedom and repeatable joint positioning, by assembling a fully 3D-printed mechanical structure and programming servo-controlled joints using Arduino.",
       category: "Robotics",
       tech: ["Arduino", "Servo Motors", "3D Printing", "Mechanical Assembly", "Electronics"],
-      image: "/pic/robotarm.jpg",
+      image: "/placeholder.svg",
       github: null,
       demo: null,
       demoVideo: null,
